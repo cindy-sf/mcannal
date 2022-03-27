@@ -9,7 +9,7 @@ import TextField from '@components/TextField'
 import WelcomeInsert from '@components/WelcomeInsert'
 
 import { getTrendings as getTrendingsMovies } from '@src/services/movies/discover'
-import { getTrendings as getTrendingsShows } from '@src/services/tvShows/discover'
+import { getTrendings as getTrendingsShows } from '@src/services/shows/discover'
 
 import type { Movies } from '@src/types/movies'
 import type { TvShows } from '@src/types/shows'

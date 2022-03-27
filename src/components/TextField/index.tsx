@@ -1,19 +1,30 @@
 import React, { ChangeEvent, ReactElement, useState, VFC } from 'react'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 
+import SearchIcon from '@assets/icons/search.svg'
+
 import { Icon, Input, InputWrapper } from './index.styles'
-import SearchIcon from '@assets/icons/search.png'
 
 interface Props {
-  onSubmit: () => void
+  initialValue?: string
 }
 
-const TextField:VFC<Props> = ({ onSubmit }): ReactElement => {
-  const [value, setValue] = useState<string>('')
-
+const TextField:VFC<Props> = ({ initialValue = '' }): ReactElement => {
+  const [value, setValue] = useState<string>(initialValue)
+  const router = useRouter()
+ 
   const handleSubmit = (): void => {
-    if (value.trim().length > 0) onSubmit()
+    const trimedValue = value.trim()
+
+    if (trimedValue.length > 0) {
+      router.push({
+        pathname: '/search',
+        query: { q: trimedValue },
+      })
+    }
   }
+
   return (
     <InputWrapper>
       <Input

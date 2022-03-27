@@ -37,6 +37,16 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 500;
   }
 
+  a {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+  }
+
+  li {
+    list-style: none;
+  }
+
   input:focus {
     outline: none;
   }

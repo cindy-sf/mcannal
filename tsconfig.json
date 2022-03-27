@@ -23,6 +23,6 @@
       "@styles/*": ["./src/styles/*"]
     },
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "changelog.config.js", "src/jest/setup/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.ts"],
   "exclude": ["node_modules"]
 }

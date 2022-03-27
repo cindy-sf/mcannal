@@ -3,25 +3,26 @@ import Image from 'next/image'
 
 import Illustration from '@assets/images/welcome.png'
 
-import { Section, Text, TextContainer, Title } from './index.styles'
+import { ImageContainer, Section, Text, Title } from './index.styles'
 
 const WelcomeInsert:VFC = (): ReactElement => (
   <Section>
-    <TextContainer>
+    <div>
       <Title>
         Bienvenue sur <span>MyCanal++</span>
       </Title>
       <Text>
         Sur cette application, vous pourrez consulter
-        films et séries comme bon vous semble. 
+        films et séries comme bon vous semble.
+        L'appli est également utilisable sur mobile.
       </Text>
       <Text>
         Bonne visite 🙂
       </Text>
-    </TextContainer>
-    <div>
-      <Image src={Illustration} role="img" width={350} height={400} />
     </div>
+    <ImageContainer>
+      <Image src={Illustration} role="img" width={300} height={300} />
+    </ImageContainer>
   </Section>
 )
 

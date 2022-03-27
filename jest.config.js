@@ -15,7 +15,7 @@ const customJestConfig = {
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
   "setupFilesAfterEnv": [
-    "<rootDir>/src/setupTests.ts"
+    "<rootDir>/src/jest/setup/index.js"
   ],
 }
 

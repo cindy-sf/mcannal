@@ -3,7 +3,8 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useRouter } from 'next/router'
 
-import { listStub } from '@src/stubs/movies/list' 
+import { listStub as moviesListStub } from '@src/stubs/movies/list' 
+import { listStub as tvShowsListStub } from '@src/stubs/shows/list' 
 
 import MovieCard from '..'
 
@@ -12,7 +13,7 @@ jest.mock('next/router', () => ({
 }))
 
 describe('MovieCard', () => {
-  const movie = listStub.results[0]
+  const movie = moviesListStub.results[0]
 
   describe('render', () => {
     it("should the movie card correctly with title and poster", () => {
@@ -31,6 +32,15 @@ describe('MovieCard', () => {
       // THEN
       expect(screen.getByText(movie.title)).toBeInTheDocument()
       expect(screen.getByTestId(`${movie.title} --poster-fallback`)).toBeInTheDocument()
+    })
+
+    it("should display the good title for tv show", () => {
+      // GIVEN
+      const tvShow = tvShowsListStub.results[0]
+      render(<MovieCard movie={tvShow} />)
+
+      // THEN
+      expect(screen.getByText(tvShow.name)).toBeInTheDocument()
     })
   })
 

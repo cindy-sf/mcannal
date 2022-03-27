@@ -21,7 +21,14 @@ import {
   Title
 } from './index.styles'
 
+// interface TrendingMovies {
+//   popular: Movies[]
+//   upcoming: Movies[]
+//   topRated: Movies[]
+// }
+
 const Home: NextPage = () => {
+  // const [trendingMovies, setTrendingMovies] = useState<TrendingMovies>()
   const [popularMovies, setPopularMovies] = useState<Movies[]>()
   const [upcomingMovies, setUpcomingMovies] = useState<Movies[]>()
   const [topRatedMovies, setTopRatedMovies] = useState<Movies[]>()

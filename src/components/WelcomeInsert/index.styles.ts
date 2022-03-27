@@ -17,7 +17,7 @@ export const Section = styled.div`
 `
 
 export const Text = styled.p`
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   margin-top: 3.2rem;
   max-width: 70%;
 `

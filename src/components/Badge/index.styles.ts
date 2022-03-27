@@ -20,5 +20,5 @@ export const BadgeContainer = styled.div<{ variant: Variant, color?: Color }>`
 `
 
 export const Text = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 `

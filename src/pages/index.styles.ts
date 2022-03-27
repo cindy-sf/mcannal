@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Badges = styled.div`
   display flex;
-  margin-top: 3.2rem;
+  margin-top: 5.2rem;
 `
 
 export const MoviCardContainer = styled.div`
@@ -31,6 +31,6 @@ export const Section = styled.section`
 `
 
 export const Title = styled.h2`
-  font-size: 3.8rem;
-  margin-top: 3.2rem;
+  font-size: 2.8rem;
+  margin-top: 2.6rem;
 `

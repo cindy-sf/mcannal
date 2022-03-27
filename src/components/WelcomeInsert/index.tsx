@@ -21,7 +21,7 @@ const WelcomeInsert:VFC = (): ReactElement => (
       </Text>
     </div>
     <ImageContainer>
-      <Image src={Illustration} role="img" width={300} height={300} />
+      <Image src={Illustration} role="img" width={400} height={400} />
     </ImageContainer>
   </Section>
 )

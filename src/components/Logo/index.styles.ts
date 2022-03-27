@@ -6,7 +6,7 @@ export const LogoWrapper = styled.div`
 `
 
 export const Text = styled.a`
-  font-size: 2.4rem;
+  font-family: 'Poppins Medium', sans-serif; 
+  font-size: 1.8rem;
   margin-left: 1.8rem;
-  font-weight: 500;
 `

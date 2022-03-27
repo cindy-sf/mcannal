@@ -1,6 +1,38 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/Poppins/Poppins-Regular.ttf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Poppins Italic";
+    src: url("/fonts/Poppins/Poppins-Italic.ttf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Poppins Medium";
+    src: url("/fonts/Poppins/Poppins-Medium.ttf");
+    font-style: medium;
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Recoleta";
+    src: url("/fonts/Recoleta/Recoleta-Black.ttf");
+    font-style: medium;
+    font-weight: 500;
+    font-display: swap;
+  }
+
   :root {
     font-size: 62.5%;
 

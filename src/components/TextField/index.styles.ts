@@ -14,10 +14,10 @@ export const Input = styled.input`
   border-bottom: 1px solid;
   padding: 0.6rem;
   width: 100%;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
 
   ::placeholder {
-    font-style: italic;
+    font-family: 'Poppins Italic', sans-serif;
     color: #000;
   }
 

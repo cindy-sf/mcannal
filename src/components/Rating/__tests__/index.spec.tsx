@@ -14,7 +14,8 @@ describe('Rating', () => {
       (notation, expectedUnStars, expectedMidStars, expectedFullStars) => {
         // GIVEN
         render(<Rating notation={notation} />)
-        
+
+        // THEN
         expect(screen.queryAllByTestId('full-star')).toHaveLength(expectedFullStars)
         expect(screen.queryAllByTestId('mid-star')).toHaveLength(expectedMidStars)
         expect(screen.queryAllByTestId('empty-star')).toHaveLength(expectedUnStars)

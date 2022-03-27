@@ -13,7 +13,7 @@ export const getTrendings = async (requestType: RequestType): Promise<DiscoverMo
       break
 
     case 'topRated':
-      url = url.concat('&sort_by=vote_count.asc,vote_average.asc')
+      url = url.concat('&sort_by=vote_average.desc,popularity.desc')
       break
 
     case 'popular':

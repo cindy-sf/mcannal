@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import type { Color, Variant } from './index'
 
 export const BadgeContainer = styled.div<{ variant: Variant, color?: Color }>`
-  padding: 1.4rem 1.6rem;
+  padding: 0.6rem 0.8rem;
   color: ${({ color }) => color === 'purple' ? '#fff' : '#000'};
   background-color: ${({ color }) =>  color === 'purple' ? '#0D10FF' : '#000'};
   border-radius: 2.6rem;
-  min-width: 15rem;
+  min-width: 12rem;
   text-align: center;
   cursor: pointer;
   margin-right: 1.2rem;

@@ -24,13 +24,25 @@ describe('Text Field', () => {
     })
   })
 
-  describe('research', () => {
-    const push = jest.fn()
-    useRouter.mockImplementation(() => ({
-      push,
-    }))
+  describe('with initial value', () => {
+    it('should set the input value with an inititial value when it is given', () => {
+      // GIVEN
+      render(<TextField initialValue="Lorem ipsum" />)
 
-    it('should redirect to the search page with by pressing on enter key', () => {
+      // THEN
+      expect(screen.getByDisplayValue('Lorem ipsum')).toBeInTheDocument()
+    })
+  })
+
+  describe('research', () => {
+    const routerPush = jest.fn()
+    beforeEach(() => {
+      useRouter.mockImplementation(() => ({
+        push: routerPush,
+      }))
+    })
+
+    it('should redirect to the search page with by pressing enter key', () => {
       // GIVEN
       render(<TextField />)
   
@@ -40,11 +52,11 @@ describe('Text Field', () => {
       userEvent.keyboard('{enter}')
   
       // THEN
-      expect(push).toHaveBeenCalledTimes(1)
-      expect(push).toHaveBeenCalledWith({ pathname: '/search', query: { q: 'Black mirror' }})
+      expect(routerPush).toHaveBeenCalledTimes(1)
+      expect(routerPush).toHaveBeenCalledWith({ pathname: '/search', query: { q: 'Black mirror' }})
     })
 
-    it('should not submit the search if the value of the input is invalid by pressing on enter key', () => {
+    it('should not do the rediction when the value of the input is invalid by pressing enter key', () => {
       // GIVEN
       render(<TextField />)
   
@@ -54,7 +66,7 @@ describe('Text Field', () => {
       userEvent.keyboard('{enter}')
   
       // THEN
-      // expect(Router.push).not.toHaveBeenCalled()
+      expect(routerPush).not.toHaveBeenCalled()
     })
   })
 })

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactElement, useState, VFC } from 'react'
+import React, { ChangeEvent, ReactElement, useEffect, useState, VFC } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 
@@ -13,6 +13,7 @@ interface Props {
 const TextField:VFC<Props> = ({ initialValue = '' }): ReactElement => {
   const [value, setValue] = useState<string>(initialValue)
   const router = useRouter()
+  useEffect(() => { setValue(initialValue)}, [initialValue] )
  
   const handleSubmit = (): void => {
     const trimedValue = value.trim()

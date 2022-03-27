@@ -21,7 +21,16 @@ describe('MovieCard', () => {
 
       // THEN
       expect(screen.getByText(movie.title)).toBeInTheDocument()
-      expect(screen.getByTestId(`${movie.title}-poster`)).toBeInTheDocument()
+      expect(screen.getByTestId(`${movie.title} --poster`)).toBeInTheDocument()
+    })
+
+    it("should display a fallback picture without movie poster", () => {
+      // GIVEN
+      render(<MovieCard movie={{ ...movie, poster_path: null }} />)
+
+      // THEN
+      expect(screen.getByText(movie.title)).toBeInTheDocument()
+      expect(screen.getByTestId(`${movie.title} --poster-fallback`)).toBeInTheDocument()
     })
   })
 

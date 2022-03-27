@@ -38,7 +38,7 @@ const MovieCard:VFC<Props> = ({ horizontal, movie }) => {
             height={320}
             layout="fixed"
             role="img"
-            data-testid={`${movie.title}-poster`}
+            data-testid={`${movie.title} --poster${!movie.poster_path ? '-fallback' : ''}`}
         />
       </ImageWrapper>
       <Text>{movie.title}</Text>

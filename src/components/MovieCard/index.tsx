@@ -5,6 +5,7 @@ import Rating from '@components/Rating'
 
 import { MOVIE_DB_BASE_POSTER_PATH } from '@src/services/constants'
 import type { Movies } from '@src/types/movies'
+import type { TvShows } from '@src/types/shows'
 
 import CardPlaceholder from '@assets/images/card-placeholder.png'
 
@@ -12,11 +13,17 @@ import { Image, ImageWrapper, MovieCardWrapper, Rate, Text } from './index.style
 
 interface Props {
   horizontal?: boolean
-  movie: Movies
+  movie: Movies | TvShows
+}
+
+const isMovie = (movie: Movies | TvShows): movie is Movies => {
+  return (movie as Movies).title !== undefined
 }
 
 const MovieCard:VFC<Props> = ({ horizontal, movie }) => {
   const router = useRouter()
+  const isMovieType = isMovie(movie)
+  const title = isMovieType ? movie.title : movie.name
 
   return (
     <MovieCardWrapper
@@ -38,10 +45,10 @@ const MovieCard:VFC<Props> = ({ horizontal, movie }) => {
             height={320}
             layout="fixed"
             role="img"
-            data-testid={`${movie.title} --poster${!movie.poster_path ? '-fallback' : ''}`}
+            data-testid={`${title} --poster${!movie.poster_path ? '-fallback' : ''}`}
         />
       </ImageWrapper>
-      <Text>{movie.title}</Text>
+      <Text>{title}</Text>
       <Rate>
         <Rating notation={movie.vote_average} />
       </Rate>

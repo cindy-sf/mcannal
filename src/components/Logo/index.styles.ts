@@ -5,7 +5,7 @@ export const LogoWrapper = styled.div`
   align-items: center;
 `
 
-export const Text = styled.p`
+export const Text = styled.a`
   font-size: 2.4rem;
   margin-left: 1.8rem;
   font-weight: 500;

@@ -2,20 +2,13 @@ import React, { VFC } from 'react'
 
 import MovieCard from '@components/MovieCard'
 
-import type { Movies } from '@src/types/movies'
-import type { TvShows } from '@src/types/shows'
+import type { TrendingData } from '@src/types/common'
 
 import {
   MovieCardContainer,
   Section,
   Title,
 } from './index.styles'
-
-export interface TrendingData {
-  popular: Movies[] | TvShows[]
-  upcoming: Movies[] | TvShows[]
-  topRated: Movies[] | TvShows[]
-}
 
 const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }) => {
   return (
@@ -25,8 +18,11 @@ const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }) => {
           À ne pas manquer
         </Title>
         <MovieCardContainer>
-          {popular?.map(movie => (
-            <MovieCard key={movie.id} movie={movie} />
+          {popular.map(movie => (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+            />
           ))}
         </MovieCardContainer>
       </Section>
@@ -35,8 +31,11 @@ const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }) => {
           Nouveautés
         </Title>
         <MovieCardContainer>
-          {upcoming?.map(movie => (
-            <MovieCard key={movie.id} movie={movie} />
+          {upcoming.map(movie => (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+            />
           ))}
         </MovieCardContainer>
       </Section>
@@ -45,8 +44,11 @@ const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }) => {
           Les mieux notés
         </Title>
         <MovieCardContainer>
-          {topRated?.map(movie => (
-            <MovieCard key={movie.id} movie={movie} />
+          {topRated.map(movie => (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+            />
           ))}
         </MovieCardContainer>
       </Section>

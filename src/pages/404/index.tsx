@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 
 import Layout from '@components/Layout'
 import StickyBar from '@components/StickyBar'
-import TextField from '@components/TextField'
 
 import Illustration from '@assets/images/404.png'
 
@@ -15,9 +14,7 @@ const Custom404 = () => {
 
   return (
     <Layout pageTitle="404">
-      <StickyBar>
-        <TextField />
-      </StickyBar>
+      <StickyBar />
       <Container>
         <Title>Il semblerait que cette page n’éxiste pas...</Title>
         <Image

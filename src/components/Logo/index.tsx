@@ -13,8 +13,8 @@ const Logo:VFC = (): ReactElement => {
     <LogoWrapper>
       <Image
         src={LogoIllustration}
-        width={52}
-        height={52}  
+        width={36}
+        height={36}  
         alt="MyCanal ++"
       />
       <Text

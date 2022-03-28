@@ -11,11 +11,12 @@ export const Image = styled(NextImage)`
 `
 
 export const ImageWrapper = styled.div`
-  border-radius: 3.2rem;
   overflow: hidden;
+  border-radius: 3.2rem;
 
   img {
     object-fit: cover;
+    border-radius: 3.2rem;
   }
 `
 

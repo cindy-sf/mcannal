@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import type { Color, Variant } from './index'
+import type { ThemeAttributes } from '@src/types/theme'
 
 export const BadgeContainer = styled.div<{ variant: Variant, color?: Color }>`
   padding: 0.6rem 0.8rem;
@@ -20,5 +21,5 @@ export const BadgeContainer = styled.div<{ variant: Variant, color?: Color }>`
 `
 
 export const Text = styled.p`
-  font-size: 1.6rem;
+  font-size: ${({ theme }: { theme: ThemeAttributes }) => theme.fontSizes.small}
 `

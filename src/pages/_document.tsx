@@ -39,7 +39,7 @@ const Document = () => {
   )
 }
 
-// Render the style in SSR
+// Render the style in server side
 Document.getInitialProps = async (ctx: DocumentContext) => {
   const sheet = new ServerStyleSheet()
   const originalRenderPage = ctx.renderPage

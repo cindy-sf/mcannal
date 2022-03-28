@@ -13,10 +13,10 @@ const Custom404 = () => {
   const router = useRouter()
 
   return (
-    <Layout pageTitle="404">
+    <Layout pageTitle="Page introuvable">
       <StickyBar />
       <Container>
-        <Title>Il semblerait que cette page n’éxiste pas...</Title>
+        <Title>Il semblerait que cette page n’existe pas...</Title>
         <Image
           src={Illustration}
           width={370}

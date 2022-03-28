@@ -16,7 +16,7 @@ describe('404', () => {
       render(<NotFoundPage />)
 
       // THEN
-      expect(screen.getByText('Il semblerait que cette page n’éxiste pas...')).toBeInTheDocument()
+      expect(screen.getByText('Il semblerait que cette page n’existe pas...', { exact: true })).toBeInTheDocument()
       expect(screen.getByAltText('Page introuvable')).toBeInTheDocument()
       expect(screen.getByRole('button', { name: 'Accueil' })).toBeInTheDocument()
     })

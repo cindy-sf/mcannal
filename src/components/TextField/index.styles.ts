@@ -16,6 +16,10 @@ export const Input = styled.input`
   width: 100%;
   font-size: 1.8rem;
 
+  :focus {
+    border-bottom-color: #090DE8;
+  }
+
   ::placeholder {
     font-family: 'Poppins Italic', sans-serif;
     color: #000;

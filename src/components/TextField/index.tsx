@@ -1,19 +1,19 @@
-import React, { ChangeEvent, ReactElement, useEffect, useState, VFC } from 'react'
+import React, { ChangeEvent, ReactElement, useState, VFC } from 'react'
+
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-
 import SearchIcon from '@assets/icons/search.svg'
 
 import { Icon, Input, InputWrapper } from './index.styles'
 
 interface Props {
   initialValue?: string
+  fieldRef?: React.RefObject<HTMLInputElement> | null
 }
 
-const TextField:VFC<Props> = ({ initialValue = '' }): ReactElement => {
+const TextField:VFC<Props> = ({ initialValue = '', fieldRef }): ReactElement => {
   const [value, setValue] = useState<string>(initialValue)
   const router = useRouter()
-  useEffect(() => { setValue(initialValue)}, [initialValue] )
  
   const handleSubmit = (): void => {
     const trimedValue = value.trim()
@@ -37,6 +37,7 @@ const TextField:VFC<Props> = ({ initialValue = '' }): ReactElement => {
           if (event.key == 'Enter') handleSubmit()
         }}
         spellCheck={false}
+        ref={fieldRef}
       />
       <Icon onClick={handleSubmit}>
         <Image src={SearchIcon} width={24} height={24} layout="fixed" />

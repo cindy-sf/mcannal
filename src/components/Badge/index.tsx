@@ -4,20 +4,23 @@ import { BadgeContainer, Text } from './index.styles'
 
 export type Variant = 'contained' | 'outlined'
 export type Color = 'purple' | 'black'
+export type Size = 'small' | 'normal'
 
 interface Props {
   title: string
   variant?: Variant
   color: Color
+  size?: Size
   onClick?: () => void
 }
 
-const Badge:VFC<Props> = ({ title, variant="contained", color, onClick }) => (
+const Badge:VFC<Props> = ({ title, variant="contained", color, onClick, size }) => (
   <BadgeContainer
     variant={variant}
     color={color}
     onClick={onClick}
     role="button"
+    size={size}
   >
     <Text>{title}</Text>
   </BadgeContainer>

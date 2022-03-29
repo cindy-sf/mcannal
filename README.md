@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MyCanal++ 🎬
 
-## Getting Started
+## Table of contents :
+- [Presentation](#presentation)
+- [Prerequisite](#prerequisite)
+- [Installation](#installation)
 
-First, run the development server:
+## Presentation
 
-```bash
-npm run dev
-# or
-yarn dev
+MyCanal++ is a wep app allowing you to consult some movies and tv shows powered with [The Movie DB API](https://www.themoviedb.org/documentation/api).
+Here is a small overview of the website 👇
+
+<div>
+  <img
+    src="https://user-images.githubusercontent.com/38938357/160586434-cdfba00e-a620-4ac0-aa43-442bc26da62a.gif"
+    alt="First image preview"
+  />
+</div>
+<br />
+
+You can check the [Figma](https://www.figma.com/file/n0CAOvWZ2vDMs1vzhGVpKy/MyCanal%2B%2B?node-id=10%3A964) and the [workflow](https://www.figma.com/proto/n0CAOvWZ2vDMs1vzhGVpKy/MyCanal%2B%2B?node-id=10%3A964&starting-point-node-id=10%3A964&scaling=scale-down) if you want.
+
+## Prerequisite
+- ⚠️ As said above, this project is build with The Movie DB API. You have to generate an api key for the proper operation of the application.
+You can do it over [here](https://www.themoviedb.org/settings/api)
+
+## Installation
+- Clone the project ```git clone https://github.com/cindy-sf/mcannal.git```
+- Now, adding the generated Movie DB api key :
+    For this, create a `credential.js` file in the root of the project, and add this following line :
+```javascript
+export const MOVIE_DB_API_KEY = YOUR_MOVIE_DB_API_KEY
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Finally, install the dependencies by running `npm i`.
+- Congratulations, you are ready to launch the project 🎉.
+  Now run `npm run dev`.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Enjoy 😄 !

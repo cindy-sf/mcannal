@@ -5,36 +5,51 @@ import { getTrendings as getTrendingsShows } from '@src/services/shows/discover'
 
 import type { DiscoverType, TrendingData } from '@src/types/common'
 
-type TrendingDataInfos = {
+export type TrendingDataInfos = {
   trendingMovies?: TrendingData,
   trendingShows?: TrendingData
 }
 
 export const useTrendingData = (discoverType: DiscoverType): TrendingDataInfos => {
-  const [trendingMovies, setTrendingMovies] = useState<TrendingData>()
-  const [trendingShows, setTrendingShows] = useState<TrendingData>()
+  const [trendingDataInfos, setTrendingDataInfos] = useState<TrendingDataInfos>()
   
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (discoverType === 'tvShows') {
           // do not fetch again if shows has already been fetched
-          if (trendingShows) return
-          setTrendingShows({
-            popular: (await getTrendingsShows('popular')).results,
-            upcoming: (await getTrendingsShows('upcoming')).results,
-            topRated: (await getTrendingsShows('topRated')).results,
-          })
+          if (trendingDataInfos?.trendingShows) return
+          const [popular, topRated, upcoming] = await Promise.all([
+            (await getTrendingsShows('popular')).results,
+            (await getTrendingsShows('topRated')).results,
+            (await getTrendingsShows('upcoming')).results
+          ])
+          setTrendingDataInfos(currentState => ({
+            trendingShows: {
+              popular,
+              upcoming,
+              topRated,
+            },
+            trendingMovies: currentState?.trendingMovies,
+          }))
           return
         }
 
         // do not fetch again if shows has already been fetched
-        if (trendingMovies) return
-        setTrendingMovies({
-          popular: (await getTrendingsMovies('popular')).results,
-          upcoming: (await getTrendingsMovies('upcoming')).results,
-          topRated: (await getTrendingsMovies('topRated')).results,
-        })
+        if (trendingDataInfos?.trendingMovies) return
+        const [popular, topRated, upcoming] = await Promise.all([
+          (await getTrendingsMovies('popular')).results,
+          (await getTrendingsMovies('topRated')).results,
+          (await getTrendingsMovies('upcoming')).results
+        ])
+        setTrendingDataInfos(currentState => ({
+          trendingMovies: {
+            popular,
+            upcoming,
+            topRated,
+          },
+          trendingShows: currentState?.trendingShows,
+        }))
       } catch (error) {
         console.error(error)
       }
@@ -44,8 +59,8 @@ export const useTrendingData = (discoverType: DiscoverType): TrendingDataInfos =
   }, [discoverType])
 
   return {
-    trendingMovies,
-    trendingShows,
+    trendingMovies: trendingDataInfos?.trendingMovies,
+    trendingShows: trendingDataInfos?.trendingShows,
   }
 }
 

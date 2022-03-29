@@ -6,7 +6,7 @@ export type DiscoverType = 'movies' | 'tvShows'
 export interface MultiSearchApiResponse {
   page: number
   results: (MultiSearchMovies | MultiSearchShows | MultiSearchPeople)[]
-  total_pages: MultiSearchShows[]
+  total_pages: number
   total_results: number
 }
 
@@ -17,7 +17,7 @@ export interface MultiSearchMovies {
   release_date: string
   original_title: string
   genre_ids: number[]
-  id: number[]
+  id: number
   media_type: 'movie'
   original_language:string
   title: string

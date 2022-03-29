@@ -6,7 +6,7 @@ import { getTrendings as getTrendingsShows } from '@src/services/shows/discover'
 import type { DiscoverType, TrendingData } from '@src/types/common'
 
 export type TrendingDataInfos = {
-  trendingMovies?: TrendingData,
+  trendingMovies?: TrendingData
   trendingShows?: TrendingData
 }
 

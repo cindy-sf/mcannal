@@ -5,4 +5,5 @@ export const Main = styled.main`
   padding: 2rem 6.4rem;
   margin-left: auto;
   margin-right: auto;
+  min-height: 100vh;
 `

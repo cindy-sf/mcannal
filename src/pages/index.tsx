@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 
 import Badge from '@components/Badge'
 import Layout from '@components/Layout'
-import Skeleton from '@components/Skeleton'
+import Loader from '@components/Loader'
 import StickyBar from '@components/StickyBar'
 import TextField from '@components/TextField'
 import WelcomeInsert from '@components/WelcomeInsert'
@@ -18,7 +18,7 @@ import { Badges } from './index.styles'
 const DiscoverSection = dynamic(
   () => import('@components/DiscoverSection'),
   {
-    loading: () => <Skeleton />,
+    loading: () => <Loader />,
   },
 )
 

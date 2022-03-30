@@ -3,24 +3,24 @@ import styled from 'styled-components'
 export const Button = styled.button`
   font-family: 'Poppins Medium', sans-serif;
   background-color: #090DE8;
-  width: 16rem;
+  width: 16rem; 
   height: 4rem;
-  border-radius: 2.6rem;
+  border-radius: ${({ theme }) => theme.radius.medium};
   border: none;
-  color: #fff;
-  margin-top: 3.2rem;
+  color: ${({ theme }) => theme.colors.white};
+  margin-top: ${({ theme }) => theme.space.large};
 `
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 3.2rem;
+  margin-top: ${({ theme }) => theme.space.large};
   align-items: center;
 `
 
 export const Title = styled.h2`
-  font-size: 3.4rem;
+  font-size: ${({ theme }) => theme.fontSizes.xLarge};
   text-align: center;
-  margin-bottom: 3.2rem;
+  margin-bottom: ${({ theme }) => theme.space.large};
   max-width: 50rem;
 `

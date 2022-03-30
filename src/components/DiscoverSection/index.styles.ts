@@ -24,8 +24,3 @@ export const MovieCardContainer = styled.div`
 export const Section = styled.section`
   margin-top: 2.8rem;
 `
-
-export const Title = styled.h2`
-  font-size: 2.8rem;
-  margin-top: 2.6rem;
-`

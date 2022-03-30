@@ -7,16 +7,16 @@ import type { TrendingData } from '@src/types/common'
 import {
   MovieCardContainer,
   Section,
-  Title,
 } from './index.styles'
+import Text from '@components/Text'
 
 const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }) => {
   return (
     <>
       <Section>
-        <Title>
+        <Text as="h2" size="large">
           À ne pas manquer
-        </Title>
+        </Text>
         <MovieCardContainer>
           {popular.map(movie => (
             <MovieCard
@@ -27,9 +27,9 @@ const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }) => {
         </MovieCardContainer>
       </Section>
       <Section>
-        <Title>
+        <Text as="h2" size="large">
           Nouveautés
-        </Title>
+        </Text>
         <MovieCardContainer>
           {upcoming.map(movie => (
             <MovieCard
@@ -40,9 +40,9 @@ const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }) => {
         </MovieCardContainer>
       </Section>
       <Section>
-        <Title>
+        <Text as="h2" size="large">
           Les mieux notés
-        </Title>
+        </Text>
         <MovieCardContainer>
           {topRated.map(movie => (
             <MovieCard

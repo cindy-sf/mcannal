@@ -49,12 +49,12 @@ describe('useTrendingData', () => {
         jest
           .spyOn(React, 'useState')
           .mockImplementationOnce(() => realUseState<TrendingDataInfos>({
+            trendingShows: undefined,
             trendingMovies: {
               popular: moviesListStub.results,
               topRated: moviesListStub.results,
               upcoming: moviesListStub.results,
             },
-            trendingShows: undefined,
           }) as any)
       renderHook(() => useTrendingData('movies'))
 

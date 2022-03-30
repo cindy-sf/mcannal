@@ -22,7 +22,7 @@ export const useTrendingData = (discoverType: DiscoverType): TrendingDataInfos =
           const [popular, topRated, upcoming] = await Promise.all([
             (await getTrendingsShows('popular')).results,
             (await getTrendingsShows('topRated')).results,
-            (await getTrendingsShows('upcoming')).results
+            (await getTrendingsShows('upcoming')).results,
           ])
           setTrendingDataInfos(currentState => ({
             trendingShows: {
@@ -35,12 +35,12 @@ export const useTrendingData = (discoverType: DiscoverType): TrendingDataInfos =
           return
         }
 
-        // do not fetch again if shows has already been fetched
+        // do not fetch again if movies has already been fetched
         if (trendingDataInfos?.trendingMovies) return
         const [popular, topRated, upcoming] = await Promise.all([
           (await getTrendingsMovies('popular')).results,
           (await getTrendingsMovies('topRated')).results,
-          (await getTrendingsMovies('upcoming')).results
+          (await getTrendingsMovies('upcoming')).results,
         ])
         setTrendingDataInfos(currentState => ({
           trendingMovies: {

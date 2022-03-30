@@ -19,37 +19,20 @@ export interface Props {
   maxWidth?: string
 }
 
-const Text:VFC<Props> = ({
-    as="p",
-    color="black",
-    colorHover,
-    size="medium",
-    children: title,
-    textDecoration="none",
-    textAlign="left",
-    mt,
-    mr,
-    mb,
-    ml,
-    maxWidth,
-  }): ReactElement => {
+const Text:VFC<Props> = (props): ReactElement => {
   return (
-    <StyledText
-      as={as}
-      color={color}
-      colorHover={colorHover}
-      size={size}
-      textDecoration={textDecoration}
-      textAlign={textAlign}
-      maxWidth={maxWidth}
-      mt={mt}
-      mr={mr}
-      mb={mb}
-      ml={ml}
-    >
-      {title}
+    <StyledText {...props}>
+      {props.children}
     </StyledText>
   )
+}
+
+Text.defaultProps = {
+  as: 'p',
+  color: 'black',
+  size: 'medium',
+  textDecoration: 'none',
+  textAlign: 'left',
 }
 
 export default Text

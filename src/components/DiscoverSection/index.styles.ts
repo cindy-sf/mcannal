@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const MovieCardContainer = styled.div`
+export const TrendingCardContainer = styled.div`
   display: flex;
   margin-top: ${({ theme }) => theme.space.medium};
   padding-bottom: ${({ theme }) => theme.space.small};

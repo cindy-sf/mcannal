@@ -1,11 +1,11 @@
 import React, { VFC } from 'react'
 
-import MovieCard from '@components/MovieCard'
+import TrendingCard from '@components/TrendingCard'
 
 import type { TrendingData } from '@src/types/common'
 
 import {
-  MovieCardContainer,
+  TrendingCardContainer,
   Section,
 } from './index.styles'
 import Text from '@components/Text'
@@ -17,40 +17,40 @@ const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }) => {
         <Text as="h2" size="large">
           À ne pas manquer
         </Text>
-        <MovieCardContainer>
+        <TrendingCardContainer>
           {popular.map(movie => (
-            <MovieCard
+            <TrendingCard
               key={movie.id}
-              movie={movie}
+              data={movie}
             />
           ))}
-        </MovieCardContainer>
+        </TrendingCardContainer>
       </Section>
       <Section>
         <Text as="h2" size="large">
           Nouveautés
         </Text>
-        <MovieCardContainer>
+        <TrendingCardContainer>
           {upcoming.map(movie => (
-            <MovieCard
+            <TrendingCard
               key={movie.id}
-              movie={movie}
+              data={movie}
             />
           ))}
-        </MovieCardContainer>
+        </TrendingCardContainer>
       </Section>
       <Section>
         <Text as="h2" size="large">
           Les mieux notés
         </Text>
-        <MovieCardContainer>
+        <TrendingCardContainer>
           {topRated.map(movie => (
-            <MovieCard
+            <TrendingCard
               key={movie.id}
-              movie={movie}
+              data={movie}
             />
           ))}
-        </MovieCardContainer>
+        </TrendingCardContainer>
       </Section>
     </>
   )

@@ -5,19 +5,19 @@ import { useRouter } from 'next/router'
 import { listStub as moviesListStub } from '@src/__mocks__/stubs/movies/list' 
 import { listStub as tvShowsListStub } from '@src/__mocks__/stubs/shows/list' 
 
-import MovieCard from '..'
+import TrendingCard from '..'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn(),
 }))
 
-describe('MovieCard', () => {
+describe('TrendingCard', () => {
   const movie = moviesListStub.results[0]
 
   describe('render', () => {
     it("should the movie card correctly with title and poster", () => {
       // GIVEN
-      render(<MovieCard movie={movie} />)
+      render(<TrendingCard data={movie} />)
 
       // THEN
       expect(screen.getByText(movie.title)).toBeInTheDocument()
@@ -26,7 +26,7 @@ describe('MovieCard', () => {
 
     it("should display a fallback picture without movie poster", () => {
       // GIVEN
-      render(<MovieCard movie={{ ...movie, poster_path: null }} />)
+      render(<TrendingCard data={{ ...movie, poster_path: null }} />)
 
       // THEN
       expect(screen.getByText(movie.title)).toBeInTheDocument()
@@ -36,7 +36,7 @@ describe('MovieCard', () => {
     it("should display the good title for tv show", () => {
       // GIVEN
       const tvShow = tvShowsListStub.results[0]
-      render(<MovieCard movie={tvShow} />)
+      render(<TrendingCard data={tvShow} />)
 
       // THEN
       expect(screen.getByText(tvShow.name)).toBeInTheDocument()
@@ -50,7 +50,7 @@ describe('MovieCard', () => {
       push,
     }))
 
-    render(<MovieCard movie={movie} />)
+    render(<TrendingCard data={movie} />)
 
     // WHEN
     userEvent.click(screen.getByText(movie.title))
@@ -58,7 +58,7 @@ describe('MovieCard', () => {
     // THEN
     expect(push).toHaveBeenCalledTimes(1)
     expect(push).toHaveBeenCalledWith({
-      pathname: '/movie/details/[id]',
+      pathname: '/details/[id]',
       query: { id: movie.id },
     })
   })

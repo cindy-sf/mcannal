@@ -20,7 +20,7 @@ export const ImageWrapper = styled.div`
   }
 `
 
-export const MovieCardWrapper = styled.a`
+export const TrendingCardWrapper = styled.a`
   margin-right: ${({ theme }) => theme.space.small};
 `
 

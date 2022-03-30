@@ -2,6 +2,7 @@ import React, { VFC } from 'react'
 import { useRouter } from 'next/router'
 
 import Rating from '@components/Rating'
+import Text from '@components/Text'
 
 import { MOVIE_DB_BASE_POSTER_PATH } from '@src/services/constants'
 import type { Movies } from '@src/types/movies'
@@ -9,10 +10,9 @@ import type { TvShows } from '@src/types/shows'
 
 import CardPlaceholder from '@assets/images/card-placeholder.png'
 
-import { Image, ImageWrapper, MovieCardWrapper, Rate, Text } from './index.styles'
+import { Image, ImageWrapper, MovieCardWrapper, Rate } from './index.styles'
 
 interface Props {
-  horizontal?: boolean
   movie: Movies | TvShows
 }
 
@@ -20,14 +20,13 @@ const isMovie = (movie: Movies | TvShows): movie is Movies => {
   return (movie as Movies).title !== undefined
 }
 
-const MovieCard:VFC<Props> = ({ horizontal, movie }) => {
+const MovieCard:VFC<Props> = ({ movie }) => {
   const router = useRouter()
   const isMovieType = isMovie(movie)
   const title = isMovieType ? movie.title : movie.name
 
   return (
     <MovieCardWrapper
-      horizontal={horizontal}
       onClick={(): void => {
         router.push({
           pathname: '/movie/details/[id]',
@@ -48,7 +47,17 @@ const MovieCard:VFC<Props> = ({ horizontal, movie }) => {
             data-testid={`${title} --poster${!movie.poster_path ? '-fallback' : ''}`}
         />
       </ImageWrapper>
-      <Text>{title}</Text>
+      <Text
+        size="medium"
+        mt="xSmall"
+        fontWeight="bold"
+        maxWidth="22rem"
+        whiteSpace="nowrap"
+        overflow="hidden"
+        textOverflow="ellipsis"
+      >
+        {title}
+      </Text>
       <Rate>
         <Rating notation={movie.vote_average} />
       </Rate>

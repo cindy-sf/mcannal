@@ -9,7 +9,8 @@ describe('Rating', () => {
       [10, 0, 0, 5],
       [0, 5, 0, 0],
       [8, 1, 0, 4],
-      [7, 1, 1, 3]
+      [7, 1, 1, 3],
+      [5, 2, 1, 2]
     ])('should render the stars correctly according the average for "%s" note',
       (notation, expectedUnStars, expectedMidStars, expectedFullStars) => {
         // GIVEN

@@ -12,32 +12,18 @@ export const Image = styled(NextImage)`
 
 export const ImageWrapper = styled.div`
   overflow: hidden;
-  border-radius: 3.2rem;
+  border-radius: ${({ theme }) => theme.radius.large};
 
   img {
     object-fit: cover;
-    border-radius: 3.2rem;
+    border-radius: ${({ theme }) => theme.radius.large};
   }
 `
 
-export const MovieCardWrapper = styled.a<{ horizontal?: boolean }>`
-  margin-right: 1.6rem;
-
-  ${({ horizontal }) => horizontal && `
-    // @todo...
-  `}
+export const MovieCardWrapper = styled.a`
+  margin-right: ${({ theme }) => theme.space.small};
 `
 
 export const Rate = styled.div`
   display: flex;
-`
-
-export const Text = styled.p`
-  font-size: 1.8rem;
-  margin-top: 1.2rem;
-  font-weight: 600;
-  max-width: 22rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `

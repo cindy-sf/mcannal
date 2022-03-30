@@ -17,12 +17,12 @@ export const Input = styled.input`
   font-size: 1.8rem;
 
   :focus {
-    border-bottom-color: #090DE8;
+    border-bottom-color: ${({ theme }) => theme.colors.purple};
   }
 
-  ::placeholder {
+  ::placeholder { 
+    color: ${({ theme }) => theme.colors.black};
     font-family: 'Poppins Italic', sans-serif;
-    color: #000;
   }
 
   ::-webkit-search-decoration,

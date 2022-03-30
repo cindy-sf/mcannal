@@ -1,6 +1,6 @@
 import React, { VFC } from 'react'
 
-import { BadgeContainer, Text } from './index.styles'
+import { BadgeContainer } from './index.styles'
 
 export type Variant = 'contained' | 'outlined'
 export type Color = 'purple' | 'black'
@@ -22,7 +22,7 @@ const Badge:VFC<Props> = ({ title, variant="contained", color, onClick, size }) 
     role="button"
     size={size}
   >
-    <Text>{title}</Text>
+    {title}
   </BadgeContainer>
 )
 

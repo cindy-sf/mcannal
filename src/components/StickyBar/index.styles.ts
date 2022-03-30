@@ -6,9 +6,9 @@ export const StickyBarWrapper = styled.nav<{ width?: number }>`
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  padding-top: 1.6rem;
-  padding-bottom: 1.6rem;
+  padding-top: ${({ theme }) => theme.space.small};
+  padding-bottom: ${({ theme }) => theme.space.small};
   top: 0;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
   z-index: 5;
 `

@@ -3,29 +3,27 @@ import styled from 'styled-components'
 import type { Color, Size, Variant } from './index'
 
 export const BadgeContainer = styled.div<{ variant: Variant, color?: Color, size?: Size }>`
-  padding: 0.6rem 0.8rem;
-  color: #fff;
   background-color: ${({ color }) =>  color === 'purple' ? '#0D10FF' : '#000'};
-  border-radius: 2.6rem;
-  min-width: 12rem;
-  text-align: center;
+  border-radius: ${({ theme }) => theme.radius.medium};
+  color: ${({ theme }) =>  theme.colors.white};
   cursor: pointer;
-  margin-right: 1.2rem;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  margin-right: ${({ theme }) => theme.space.small};
+  min-width: 12rem;
+  padding: 0.6rem 0.8rem;
+  text-align: center;
 
   ${({ variant }) => variant === 'outlined' && `
     color: #000;
+    color: ${({ theme }) => theme.colors.white};
     border: 0.1rem solid;
     background-color: #fff;
   `}
 
   ${({ size }) => size === 'small' && `
-    width: 7rem;
-    min-width: initial;
-    padding: initial;
     height: 2.5rem;
+    padding: initial;
+    min-width: initial;
+    width: 7rem;
   `}
-`
-
-export const Text = styled.p`
-  font-size: 1.6rem;
 `

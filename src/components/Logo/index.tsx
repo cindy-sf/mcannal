@@ -2,9 +2,11 @@ import React, { ReactElement, VFC } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
+import Text from '@components/Text'
+
 import LogoIllustration from '@assets/logo.svg'
 
-import { LogoWrapper, Text } from './index.styles'
+import { LogoWrapper } from './index.styles'
 
 const Logo:VFC = (): ReactElement => {
   const router = useRouter()
@@ -18,8 +20,12 @@ const Logo:VFC = (): ReactElement => {
         alt="MyCanal ++"
       />
       <Text
+        cursor="pointer"
         role="link"
         title="Canal++"
+        ml="small"
+        as="a"
+        fontFamily="Poppins Medium"
         onClick={(): void => {
           router.push({
             pathname: '/',

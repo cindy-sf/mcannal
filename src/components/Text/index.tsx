@@ -1,34 +1,42 @@
 import React, { VFC, ReactElement, ReactNode } from 'react'
 
-import type { ThemeAttributes } from '@src/types/theme'
+import type { AllowedColors, AllowedCursor, AllowedFonts, AllowedFontSizes, AllowedOverflow, AllowedRole, AllowedSpaces, AllowedTags, AllowedTextOverflow, AllowedWhiteSpace, FontWeight, TextAlignPosition, TextDecoration, ThemeAttributes } from '@src/types/theme'
 
 import { StyledText } from './index.styles'
 
 export interface Props {
-  as?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'a' | 'span'
-  color?: keyof ThemeAttributes['colors']
-  colorHover?: keyof ThemeAttributes['colors']
-  size?: keyof ThemeAttributes['fontSizes']
-  children: ReactNode
-  textDecoration?: 'none' | 'underline'
-  textAlign?: 'center' | 'left' | 'right'
-  mt?: keyof ThemeAttributes['space']
-  mr?: keyof ThemeAttributes['space']
-  mb?: keyof ThemeAttributes['space']
-  ml?: keyof ThemeAttributes['space']
+  as?: AllowedTags
+  color?: AllowedColors
+  colorHover?: AllowedColors
+  size?: AllowedFontSizes
+  children: ReactNode | string[] | string
+  textDecoration?: TextDecoration
+  textAlign?: TextAlignPosition
+  mt?: AllowedSpaces
+  mr?: AllowedSpaces
+  mb?: AllowedSpaces
+  ml?: AllowedSpaces
   maxWidth?: string
+  onClick?: () => void
+  cursor?: AllowedCursor
+  role?: AllowedRole
+  title?: string
+  fontWeight?: FontWeight
+  fontFamily?: AllowedFonts
+  whiteSpace?: AllowedWhiteSpace
+  overflow?: AllowedOverflow
+  textOverflow?: AllowedTextOverflow
 }
 
-const Text:VFC<Props> = (props): ReactElement => {
-  return (
-    <StyledText {...props}>
-      {props.children}
-    </StyledText>
-  )
-}
+const Text:VFC<Props> = (props): ReactElement => (
+  <StyledText {...props}>
+    {props.children}
+  </StyledText>
+)
 
 Text.defaultProps = {
   as: 'p',
+  cursor: 'auto',
   color: 'black',
   size: 'medium',
   textDecoration: 'none',

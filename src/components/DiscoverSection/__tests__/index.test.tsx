@@ -19,6 +19,8 @@ describe('DiscoverSection', () => {
 
       // THEN
       expect(screen.getByText('À ne pas manquer', { exact: true })).toBeInTheDocument()
+      expect(screen.getByText('Nouveautés', { exact: true })).toBeInTheDocument()
+      expect(screen.getByText('Les mieux notés', { exact: true })).toBeInTheDocument()
     })
   })
 })

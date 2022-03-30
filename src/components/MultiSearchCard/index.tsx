@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import Badge from '@components/Badge'
 import Rating from '@components/Rating'
+import Text from '@components/Text'
 
 import { MOVIE_DB_BASE_POSTER_PATH } from '@src/services/constants'
 
@@ -16,11 +17,9 @@ import {
   ImageWrapper,
   MultiSearchCardWrapper,
   Rate,
-  Text,
-  Title,
   TitleWrapper,
 } from './index.styles'
-
+ 
 interface Props {
   data: MultiSearchMovies | MultiSearchShows
 }
@@ -39,7 +38,7 @@ const MultiSearchCard:VFC<Props> = ({ data }) => {
     <MultiSearchCardWrapper
       onClick={(): void => {
         router.push({
-          pathname: '/movie/details/[id]',
+          pathname: '/details/[id]',
           query: { id: data.id },
         })
       }}
@@ -59,10 +58,27 @@ const MultiSearchCard:VFC<Props> = ({ data }) => {
       </ImageWrapper>
       <Container>
         <TitleWrapper>
-          <Title>{title}</Title>
+          <Text
+            as="h3"
+            size="large"
+            mr="xSmall"
+            maxWidth="25rem"
+            whiteSpace="nowrap"
+            overflow="hidden"
+            textOverflow="ellipsis"
+          >
+            {title}
+          </Text>
           <Badge title={badgeTitle} color="black" size="small" />
         </TitleWrapper>
-        <Text>{data.overview.slice(0, 262) || 'Pas de description pour ce média'}...</Text>
+        <Text
+          cursor="pointer"
+          colorHover="purple"
+          mt="small"
+          mb="xSmall"
+        >
+          {data.overview.slice(0, 262) || 'Pas de description pour ce média'}...
+          </Text>
         <Rate>
           <Rating notation={data.vote_average} />
         </Rate>

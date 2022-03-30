@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useRouter } from 'next/router'
 
-import { listStub as moviesListStub } from '@src/stubs/movies/list' 
-import { listStub as tvShowsListStub } from '@src/stubs/shows/list' 
+import { listStub as moviesListStub } from '@src/__mocks__/stubs/movies/list' 
+import { listStub as tvShowsListStub } from '@src/__mocks__/stubs/shows/list' 
 
 import MovieCard from '..'
 

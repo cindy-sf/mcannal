@@ -10,8 +10,9 @@ export const Section = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  border-radius: 3.2rem;
+  border-radius: ${({ theme }) => theme.radius.large};
   background-color: #F2F2F2;
-  padding: 3.2rem 0 1.6rem 3.2rem;
-  margin-top: 2.4rem;
+  padding: ${({ theme }) => theme.space.large};
+  padding-bottom: ${({ theme }) => theme.space.none};
+  margin-top: ${({ theme }) => theme.space.large};
 `

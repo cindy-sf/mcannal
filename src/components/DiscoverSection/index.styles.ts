@@ -2,9 +2,11 @@ import styled from 'styled-components'
 
 export const MovieCardContainer = styled.div`
   display: flex;
-  margin-top: 2.4rem;
-  padding-bottom: 1.8rem;
+  margin-top: ${({ theme }) => theme.space.medium};
+  padding-bottom: ${({ theme }) => theme.space.small};
   overflow-x: scroll;
+  scrollbar-color: ${({ theme }) => `${theme.colors.grey} ${theme.colors.white}`};
+  scrollbar-width: thin;
 
   ::-webkit-scrollbar {
     width: 0;
@@ -15,12 +17,10 @@ export const MovieCardContainer = styled.div`
   ::-webkit-scrollbar-thumb {
     cursor: grab;
       background: #B6B2B2;
-      border-radius: 1.6rem;
+      border-radius: ${({ theme }) => theme.radius.small};
   }
-  scrollbar-color: #B6B2B2 white;
-  scrollbar-width: thin;
 `
 
 export const Section = styled.section`
-  margin-top: 2.8rem;
+  margin-top: ${({ theme }) => theme.space.large};
 `

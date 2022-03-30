@@ -1,4 +1,3 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 
 import { listStub } from '@src/__mocks__/stubs/movies/list'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRouter, RouterEvent } from 'next/router'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

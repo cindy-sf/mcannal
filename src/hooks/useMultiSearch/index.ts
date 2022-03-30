@@ -11,6 +11,7 @@ import type {
 interface MultiSearchInfos {
   infos?: (MultiSearchMovies | MultiSearchShows)[]
   hasFetched?: boolean
+  totalPage?: number
 }
 
 const isPersonData = (data: MultiSearchMovies | MultiSearchShows | MultiSearchPeople): data is MultiSearchPeople => {
@@ -36,13 +37,15 @@ export const useMultiSearch = (page: number, query?: string): MultiSearchInfos =
         // concat the new data with the current state only if it's not a new search
         if (page !== 1) {
           setMultiSearchInfos(currentState => ({
-            infos: currentState?.infos?.concat(filteredMultiSearchInfosData || []),
+            infos: currentState?.infos?.concat(filteredMultiSearchInfosData ?? []),
+            totalPage: multiSearchInfosData.total_pages,
           }))
           return
         }
 
         setMultiSearchInfos({
-          infos: filteredMultiSearchInfosData || [],
+          infos: filteredMultiSearchInfosData ?? [],
+          totalPage: multiSearchInfosData.total_pages,
         })
       } catch (error) {
         console.error(error)
@@ -57,6 +60,7 @@ export const useMultiSearch = (page: number, query?: string): MultiSearchInfos =
   return {
     infos: multiSearchInfos?.infos,
     hasFetched: hasFetchedData,
+    totalPage: multiSearchInfos?.totalPage,
   }
 }
 

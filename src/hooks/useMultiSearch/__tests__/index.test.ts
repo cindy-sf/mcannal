@@ -25,10 +25,11 @@ describe('useMultiSearch', () => {
     expect(result.current).toEqual({
       infos: filteredMultiSearchStub,
       hasFetched: true,
+      totalPage: multiSearchStub.total_pages,
     })
   })
 
-  it('should do nothing without a query', async () => {
+  it('should do nothing without a query', () => {
     // GIVEN
     const { result } = renderHook(() => useMultiSearch(1))
 
@@ -36,6 +37,19 @@ describe('useMultiSearch', () => {
     expect(result.current).toEqual({
       hasFetched: false,
       infos: undefined,
+    })
+  })
+
+  it('should concat if page number is greater than 1', async () => {
+    // GIVEN
+    const { result, waitForNextUpdate } = renderHook(() => useMultiSearch(2, 'toto'))
+
+    // THEN
+    await waitForNextUpdate()
+    expect(result.current).toEqual({
+      infos: undefined,
+      hasFetched: true,
+      totalPage: multiSearchStub.total_pages,
     })
   })
 })

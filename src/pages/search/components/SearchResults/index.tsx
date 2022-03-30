@@ -2,13 +2,10 @@ import React, { ReactElement, VFC } from 'react'
 
 import { MultiSearchMovies, MultiSearchShows } from '@src/types/common'
 
+import Text from '@components/Text'
 import MultiSearchCard from '@components/MultiSearchCard'
 
-import {
-  Section,
-  Text,
-  MovieCardWrapper
-} from './index.styles'
+import { Section, MultiSearchCardContainer } from './index.styles'
 
 interface Prop {
   query: string
@@ -17,12 +14,12 @@ interface Prop {
 
 const SearchResult:VFC<Prop> = ({ multiSearchInfos, query }): ReactElement => (
   <Section>
-    <Text>Résulat(s) pour la recherche "{query}"</Text>
-    <MovieCardWrapper>
+    <Text fontFamily="Poppins Italic">Résulat(s) pour la recherche "{query}"</Text>
+    <MultiSearchCardContainer>
       {multiSearchInfos.map(info => (
         <MultiSearchCard key={info.id} data={info} />
       ))}
-    </MovieCardWrapper>
+    </MultiSearchCardContainer>
   </Section>
 )
 

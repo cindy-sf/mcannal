@@ -25,6 +25,7 @@ const SearchEmpty:VFC<Props> = ({ cta, illustration, title }): ReactElement => (
         width={400}
         height={350}
         layout="fixed"
+        alt={title}
       />
     </ImageWrapper>
     <Button

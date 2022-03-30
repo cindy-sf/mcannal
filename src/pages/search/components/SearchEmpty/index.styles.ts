@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ImageWrapper = styled.div`
-  margin-bottom: 5.2rem;
+  margin-bottom: ${({ theme }) => theme.space.xLarge};
 `
 
 export const Screen = styled.section`
@@ -13,8 +13,8 @@ export const Screen = styled.section`
 `
 
 export const Title = styled.h2`
-  font-size: 3.2rem; 
+  font-size: ${({ theme }) => theme.fontSizes.xLarge}; 
   text-align: center;
-  margin-top: 5.2rem;
-  margin-bottom: 2.2rem;
+  margin-top: ${({ theme }) => theme.space.xLarge};
+  margin-bottom: ${({ theme }) => theme.space.xLarge};
 `

@@ -1,6 +1,64 @@
-import type { MovieDetails } from "@src/types/movies"
+import type { Credits, MovieDetails } from "@src/types/movies"
 
-export const detailStub: MovieDetails = {
+export const creditsStub: Credits = {
+  id: 152601,
+  cast: [{
+    adult: false,
+    gender: 2,
+    id: 73421,
+    known_for_department: "Acting",
+    name: "Joaquin Phoenix",
+    original_name: "Joaquin Phoenix",
+    popularity: 16.388,
+    profile_path: "/1UzIGSKFH0A9ouwnMwQQWUiqV2s.jpg",
+    cast_id: 5,
+    character: "Theodore Twombly",
+    credit_id: "52fe4b259251416c910d1639",
+    order: 0
+  },
+  {
+    adult: false,
+    gender: 1,
+    id: 1245,
+    known_for_department: "Acting",
+    name: "Scarlett Johansson",
+    original_name: "Scarlett Johansson",
+    popularity: 43.028,
+    profile_path: "/6NsMbJXRlDZuDzatN2akFdGuTvx.jpg",
+    cast_id: 10,
+    character: "Samantha (voice)",
+    credit_id: "52fe4b259251416c910d164f",
+    order: 1
+  }],
+  crew: [{
+    adult: false,
+    gender: 2,
+    id: 202,
+    known_for_department: "Writing",
+    name: "Charlie Kaufman",
+    original_name: "Charlie Kaufman",
+    popularity: 4.585,
+    profile_path: "/75aOpLBpvdtQM3BkWGFUvMs6LvH.jpg",
+    credit_id: "5fde4e21e263bb0041bb0eeb",
+    department: "Crew",
+    job: "Thanks"
+  },
+  {
+    adult: false,
+    gender: 2,
+    id: 1781,
+    known_for_department: "Camera",
+    name: "Lance Acord",
+    original_name: "Lance Acord",
+    popularity: 1.391,
+    profile_path: "/d6GFg2GBKDlIlhJdKopjSQg09oe.jpg",
+    credit_id: "5b3004570e0a265623008c54",
+    department: "Camera",
+    job: "Additional Photography"
+  }],
+}
+
+export const detailsStub: MovieDetails = {
   adult: false,
   backdrop_path: "/6mkIV5UmI9CoWZROWDd69KrZuYJ.jpg",
   belongs_to_collection: null,

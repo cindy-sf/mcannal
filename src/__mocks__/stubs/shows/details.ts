@@ -1,6 +1,6 @@
 import type { MovieDetails } from "@src/types/movies"
 
-export const detailStub: MovieDetails = {
+export const detailsStub: MovieDetails = {
   adult: false,
   backdrop_path: "/6mkIV5UmI9CoWZROWDd69KrZuYJ.jpg",
   belongs_to_collection: null,

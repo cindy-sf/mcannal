@@ -4,11 +4,12 @@ import { ThemeProvider } from 'styled-components'
 
 import { theme } from '@styles/theme'
 
-const AllTheProviders: FC = ({ children }) => (
+const AllTheProviders: FC = ({ children }): ReactElement => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 )
 
-const customRender = (ui: ReactElement) =>  render(ui, { wrapper: AllTheProviders })
+const customRender = (ui: ReactElement) =>
+  render(ui, { wrapper: AllTheProviders })
 
 export * from '@testing-library/react'
 

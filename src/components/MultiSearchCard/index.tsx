@@ -1,4 +1,4 @@
-import React, { VFC } from 'react'
+import React, { ReactElement, VFC } from 'react'
 import { useRouter } from 'next/router'
 
 import Badge from '@components/Badge'
@@ -19,39 +19,46 @@ import {
   Rate,
   TitleWrapper,
 } from './index.styles'
- 
+
 interface Props {
   data: MultiSearchMovies | MultiSearchShows
 }
 
-const isMovie = (movie: MultiSearchMovies | MultiSearchShows): movie is MultiSearchMovies => {
+const isMovie = (
+  movie: MultiSearchMovies | MultiSearchShows
+): movie is MultiSearchMovies => {
   return (movie as MultiSearchMovies).title !== undefined
 }
 
-const MultiSearchCard:VFC<Props> = ({ data }) => {
+const MultiSearchCard: VFC<Props> = ({ data }): ReactElement => {
   const router = useRouter()
   const isMovieType = isMovie(data)
   const title = isMovieType ? data.title : data.name
   const badgeTitle = data.media_type === 'movie' ? 'Film' : 'Série'
-  const redirectionUrl = isMovieType ? { pathname: '/movie/details/[id]', query: { id: data.id } } : '/no-more-time'
+  const redirectionUrl = isMovieType
+    ? { pathname: '/movie/details/[id]', query: { id: data.id } }
+    : '/no-more-time'
 
   return (
     <MultiSearchCardWrapper
       onClick={(): void => {
         router.push(redirectionUrl)
-      }} 
+      }}
     >
       <ImageWrapper>
         <Image
           src={
             data.poster_path
-            ? `${MOVIE_DB_BASE_POSTER_PATH}/${data.poster_path}`
-            : CardPlaceholder}
-            width={220}
-            height={320}
-            layout="fixed"
-            role="img"
-            data-testid={`${title} --poster${!data.poster_path ? '-fallback' : ''}`}
+              ? `${MOVIE_DB_BASE_POSTER_PATH}/${data.poster_path}`
+              : CardPlaceholder
+          }
+          width={220}
+          height={320}
+          layout="fixed"
+          role="img"
+          data-testid={`${title} --poster${
+            !data.poster_path ? '-fallback' : ''
+          }`}
         />
       </ImageWrapper>
       <Container>
@@ -70,13 +77,9 @@ const MultiSearchCard:VFC<Props> = ({ data }) => {
           </Text>
           <Badge title={badgeTitle} color="black" size="small" />
         </TitleWrapper>
-        <Text
-          cursor="pointer"
-          colorHover="purple"
-          marginBottom="xSmall"
-        >
+        <Text cursor="pointer" colorHover="purple" marginBottom="xSmall">
           {data.overview.slice(0, 262) || 'Pas de description pour ce média'}...
-          </Text>
+        </Text>
         <Rate>
           <Rating notation={data.vote_average} />
         </Rate>

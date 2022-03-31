@@ -1,4 +1,4 @@
-import React, { VFC } from 'react'
+import React, { ReactElement, VFC } from 'react'
 
 import { StyledButton } from './index.styles'
 
@@ -10,11 +10,8 @@ interface Props {
   onClick?: () => void
 }
 
-const Button:VFC<Props> = ({ title, onClick }) => (
-  <StyledButton
-    onClick={onClick}
-    role="button"
-  >
+const Button: VFC<Props> = ({ title, onClick }): ReactElement => (
+  <StyledButton onClick={onClick} role="button">
     <p>{title}</p>
   </StyledButton>
 )

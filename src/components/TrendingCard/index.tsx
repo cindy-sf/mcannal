@@ -1,4 +1,4 @@
-import React, { VFC } from 'react'
+import React, { ReactElement, VFC } from 'react'
 import { useRouter } from 'next/router'
 
 import Rating from '@components/Rating'
@@ -17,14 +17,16 @@ interface Props {
 }
 
 const isMovie = (data: Movies | TvShows): data is Movies => {
-  return (data as Movies).title  !== undefined
+  return (data as Movies).title !== undefined
 }
 
-const TrendingCard:VFC<Props> = ({ data }) => {
+const TrendingCard: VFC<Props> = ({ data }): ReactElement => {
   const router = useRouter()
   const isMovieType = isMovie(data)
   const title = isMovieType ? data.title : data.name
-  const redirectionUrl = isMovieType ? { pathname: '/movie/details/[id]', query: { id: data.id } } : '/no-more-time'
+  const redirectionUrl = isMovieType
+    ? { pathname: '/movie/details/[id]', query: { id: data.id } }
+    : '/no-more-time'
 
   return (
     <TrendingCardWrapper
@@ -36,13 +38,16 @@ const TrendingCard:VFC<Props> = ({ data }) => {
         <Image
           src={
             data.poster_path
-            ? `${MOVIE_DB_BASE_POSTER_PATH}/${data.poster_path}`
-            : CardPlaceholder}
-            width={220}
-            height={320}
-            layout="fixed"
-            role="img"
-            data-testid={`${title} --poster${!data.poster_path ? '-fallback' : ''}`}
+              ? `${MOVIE_DB_BASE_POSTER_PATH}/${data.poster_path}`
+              : CardPlaceholder
+          }
+          width={220}
+          height={320}
+          layout="fixed"
+          role="img"
+          data-testid={`${title} --poster${
+            !data.poster_path ? '-fallback' : ''
+          }`}
         />
       </ImageWrapper>
       <Text
@@ -59,7 +64,7 @@ const TrendingCard:VFC<Props> = ({ data }) => {
       <Rate>
         <Rating notation={data.vote_average} />
       </Rate>
-      </TrendingCardWrapper>
+    </TrendingCardWrapper>
   )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Image, { StaticImageData } from 'next/image'
 
 import FullStarIcon from '@assets/icons/full-star.svg'
@@ -12,10 +12,10 @@ interface StarsProperties {
   type: 'full' | 'mid' | 'empty'
 }
 
-const RatingStar = ({ notation }: { notation: number }) => {
+const RatingStar = ({ notation }: { notation: number }): ReactElement => {
   // For getting an average on 5
   const average = Math.round(notation) / 2
-  const stars:StarsProperties[] = []
+  const stars: StarsProperties[] = []
 
   const fillStar = (nb: number, star: StarsProperties): void => {
     for (let i = 0; i < nb; i += 1) stars.push(star)
@@ -25,22 +25,25 @@ const RatingStar = ({ notation }: { notation: number }) => {
   fillStar(Math.floor(average), { src: FullStarIcon, type: 'full' })
 
   // For fillin with mid stars
-  fillStar(
-    average - Math.floor(average) !== 0 ? 1 : 0,
-    { src: MidStarIcon, type: 'mid' }
-  )
+  fillStar(average - Math.floor(average) !== 0 ? 1 : 0, {
+    src: MidStarIcon,
+    type: 'mid',
+  })
 
   // For fillin with unstars
-  fillStar(
-    Math.floor(5 - average),
-    { src: UnStarIcon, type: 'empty' }
-  )
+  fillStar(Math.floor(5 - average), { src: UnStarIcon, type: 'empty' })
 
   return (
     <RatingWrapper>
       {stars.map(({ src, type }, index: number) => (
         <span key={index}>
-          <Image role="img" src={src} width={20} height={20} data-testid={`${type}-star`} />
+          <Image
+            role="img"
+            src={src}
+            width={20}
+            height={20}
+            data-testid={`${type}-star`}
+          />
         </span>
       ))}
     </RatingWrapper>

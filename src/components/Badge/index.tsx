@@ -1,4 +1,4 @@
-import React, { VFC } from 'react'
+import React, { ReactElement, VFC } from 'react'
 
 import { BadgeContainer } from './index.styles'
 
@@ -14,7 +14,13 @@ interface Props {
   onClick?: () => void
 }
 
-const Badge:VFC<Props> = ({ title, variant="contained", color, onClick, size }) => (
+const Badge: VFC<Props> = ({
+  title,
+  variant = 'contained',
+  color,
+  onClick,
+  size,
+}): ReactElement => (
   <BadgeContainer
     variant={variant}
     color={color}

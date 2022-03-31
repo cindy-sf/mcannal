@@ -49,7 +49,7 @@ const Search:VFC = (): ReactElement => {
     }
 
     getQuery()
-  }, [router.isReady, router.query.q])
+  }, [router.isReady, router.query?.q])
 
   const focusTextField = (): void => textFieldRef.current?.focus()
 
@@ -88,7 +88,7 @@ const Search:VFC = (): ReactElement => {
           cta={{
             onClick: focusTextField,
             title: 'Rechercher',
-          }}  
+          }}
         />
       )}
       {shouldDisplaySearchWithResults && (

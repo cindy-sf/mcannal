@@ -33,10 +33,10 @@ You can check the [Figma](https://www.figma.com/file/n0CAOvWZ2vDMs1vzhGVpKy/MyCa
 
 - Clone the project `git clone https://github.com/cindy-sf/mcannal.git`
 - Now, adding the generated Movie DB api key :
-  For this, create a `credential.ts` file in the root of the project, and add this following line :
+  For this, create a `.env.local` file in the root of the project, and add this following line :
 
 ```javascript
-export const MOVIE_DB_API_KEY = 'YOUR_MOVIE_DB_API_KEY'
+MOVIE_DB_API_KEY = 'YOUR_MOVIE_DB_API_KEY'
 ```
 
 - Finally, install the dependencies by running `npm i`.

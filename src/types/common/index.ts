@@ -19,12 +19,12 @@ export interface MultiSearchMovies {
   genre_ids: number[]
   id: number
   media_type: 'movie'
-  original_language:string
+  original_language: string
   title: string
   backdrop_path: string | null
   popularity: number
   vote_count: number
-  video:boolean
+  video: boolean
   vote_average: number
 }
 

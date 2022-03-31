@@ -15,9 +15,20 @@ describe('No more time', () => {
       render(<NoMoreTime />)
 
       // THEN
-      expect(screen.getByText('Désolé, je n’ai pas eu le temps pour développer cette page 😓', { exact: true })).toBeInTheDocument()
-      expect(screen.getByRole('button', { name: 'Retourner à l’accueil' })).toBeInTheDocument()
-      expect(screen.getByAltText('Désolé, je n’ai pas eu le temps pour développer cette page 😓')).toBeInTheDocument()
+      expect(
+        screen.getByText(
+          'Désolé, je n’ai pas eu le temps pour développer cette page 😓',
+          { exact: true }
+        )
+      ).toBeInTheDocument()
+      expect(
+        screen.getByRole('button', { name: 'Retourner à l’accueil' })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByAltText(
+          'Désolé, je n’ai pas eu le temps pour développer cette page 😓'
+        )
+      ).toBeInTheDocument()
     })
   })
 
@@ -31,7 +42,9 @@ describe('No more time', () => {
     render(<NoMoreTime />)
 
     // WHEN
-    userEvent.click(screen.getByRole('button', { name: 'Retourner à l’accueil' }))
+    userEvent.click(
+      screen.getByRole('button', { name: 'Retourner à l’accueil' })
+    )
 
     // THEN
     expect(routerPush).toHaveBeenCalledTimes(1)

@@ -16,7 +16,12 @@ interface Props {
   }
 }
 
-const InfoScreen:VFC<Props> = ({ cta, illustration, title, titleMaxWidth }): ReactElement => (
+const InfoScreen: VFC<Props> = ({
+  cta,
+  illustration,
+  title,
+  titleMaxWidth,
+}): ReactElement => (
   <ScreenContainer>
     <Text
       as="h2"
@@ -36,10 +41,7 @@ const InfoScreen:VFC<Props> = ({ cta, illustration, title, titleMaxWidth }): Rea
         alt={title}
       />
     </ImageWrapper>
-    <Button
-      title={cta.title}
-      onClick={cta.onClick}
-    />
+    <Button title={cta.title} onClick={cta.onClick} />
   </ScreenContainer>
 )
 

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import App from '../_app' 
+import App from '../_app'
 
 // @todo
 describe.skip('App', () => {

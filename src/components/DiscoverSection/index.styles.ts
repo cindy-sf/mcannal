@@ -5,7 +5,8 @@ export const TrendingCardContainer = styled.div`
   margin-top: ${({ theme }) => theme.space.medium};
   padding-bottom: ${({ theme }) => theme.space.small};
   overflow-x: scroll;
-  scrollbar-color: ${({ theme }) => `${theme.colors.grey} ${theme.colors.white}`};
+  scrollbar-color: ${({ theme }) =>
+    `${theme.colors.grey} ${theme.colors.white}`};
   scrollbar-width: thin;
 
   ::-webkit-scrollbar {
@@ -16,8 +17,8 @@ export const TrendingCardContainer = styled.div`
 
   ::-webkit-scrollbar-thumb {
     cursor: grab;
-      background: #B6B2B2;
-      border-radius: ${({ theme }) => theme.radius.small};
+    background: #b6b2b2;
+    border-radius: ${({ theme }) => theme.radius.small};
   }
 `
 

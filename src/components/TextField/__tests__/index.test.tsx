@@ -17,7 +17,7 @@ describe('Text Field', () => {
     it('should render the text field correctly', () => {
       // GIVEN
       render(<TextField />)
-    
+
       // THEN
       expect(screen.getByPlaceholderText(placeholderText)).toBeInTheDocument()
     })
@@ -46,26 +46,32 @@ describe('Text Field', () => {
     it('should redirect to the search page with by pressing enter key', () => {
       // GIVEN
       render(<TextField />)
-  
+
       // WHEN
-      userEvent.type(screen.getByPlaceholderText(placeholderText), 'Black mirror')
+      userEvent.type(
+        screen.getByPlaceholderText(placeholderText),
+        'Black mirror'
+      )
       // AND
       userEvent.keyboard('{enter}')
-  
+
       // THEN
       expect(routerPush).toHaveBeenCalledTimes(1)
-      expect(routerPush).toHaveBeenCalledWith({ pathname: '/search', query: { q: 'Black mirror' }})
+      expect(routerPush).toHaveBeenCalledWith({
+        pathname: '/search',
+        query: { q: 'Black mirror' },
+      })
     })
 
     it('should not do the rediction when the value of the input is invalid by pressing enter key', () => {
       // GIVEN
       render(<TextField />)
-  
+
       // WHEN
       userEvent.type(screen.getByPlaceholderText(placeholderText), '  ')
       // AND
       userEvent.keyboard('{enter}')
-  
+
       // THEN
       expect(routerPush).not.toHaveBeenCalled()
     })

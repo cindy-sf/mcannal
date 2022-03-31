@@ -8,7 +8,7 @@ describe('getTrendrings', () => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       json: () => Promise.resolve(),
-    }),
+    })
   ) as jest.Mock
   afterEach(jest.clearAllMocks)
 
@@ -29,4 +29,3 @@ describe('getTrendrings', () => {
     }
   )
 })
-  

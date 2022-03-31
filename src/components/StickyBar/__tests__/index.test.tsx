@@ -4,7 +4,7 @@ import StickyBar from '..'
 
 describe('StickyBar', () => {
   describe('render', () => {
-    it("should render correctly the StickyBar with the brand title and child", () => {
+    it('should render correctly the StickyBar with the brand title and child', () => {
       // GIVEN
       render(
         <StickyBar>
@@ -20,7 +20,7 @@ describe('StickyBar', () => {
       expect(screen.getByText('Child elem')).toBeInTheDocument()
     })
 
-    it("should render correctly the StickyBar without a child", () => {
+    it('should render correctly the StickyBar without a child', () => {
       // GIVEN
       render(<StickyBar withTransparentBg />)
 

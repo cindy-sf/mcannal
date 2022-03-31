@@ -11,19 +11,22 @@ interface Props {
   fieldRef?: React.RefObject<HTMLInputElement> | null
 }
 
-const TextField:VFC<Props> = ({ initialValue = '', fieldRef }): ReactElement => {
+const TextField: VFC<Props> = ({
+  initialValue = '',
+  fieldRef,
+}): ReactElement => {
   const [value, setValue] = useState<string>(initialValue)
   const router = useRouter()
- 
+
   const handleSubmit = (): void => {
     const trimedValue = value.trim()
 
-    if (trimedValue.length > 0) {
-      router.push({
-        pathname: '/search',
-        query: { q: trimedValue },
-      })
-    }
+    if (trimedValue.length > 0) return
+
+    router.push({
+      pathname: '/search',
+      query: { q: trimedValue },
+    })
   }
 
   return (
@@ -31,7 +34,9 @@ const TextField:VFC<Props> = ({ initialValue = '', fieldRef }): ReactElement => 
       <Input
         type="search"
         value={value}
-        onChange={(e: ChangeEvent<HTMLInputElement>): void => setValue(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>): void =>
+          setValue(e.target.value)
+        }
         placeholder="Rechercher..."
         onKeyPress={(event: React.KeyboardEvent): void => {
           if (event.key == 'Enter') handleSubmit()

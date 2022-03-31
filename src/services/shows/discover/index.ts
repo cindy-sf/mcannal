@@ -1,10 +1,12 @@
-import { DISCOVER_SHOWS_BASE_PATH } from '@src/services/constants'  
+import { DISCOVER_SHOWS_BASE_PATH } from '@src/services/constants'
 
 import type { DiscoverShowsApiResponse } from '@src/types/shows'
 
 export type RequestType = 'upcoming' | 'topRated' | 'popular'
 
-export const getTrendings = async (requestType: RequestType): Promise<DiscoverShowsApiResponse> => {
+export const getTrendings = async (
+  requestType: RequestType
+): Promise<DiscoverShowsApiResponse> => {
   let url = `${DISCOVER_SHOWS_BASE_PATH}&limit=10`
 
   switch (requestType) {
@@ -20,7 +22,7 @@ export const getTrendings = async (requestType: RequestType): Promise<DiscoverSh
     default:
       break
   }
-  
+
   const data = await fetch(url)
   return await data.json()
 }

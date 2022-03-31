@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-type WindowsSize = Record<'width' |'height', number | undefined>
+type WindowsSize = Record<'width' | 'height', number | undefined>
 
 export const useWindowSize = (): WindowsSize => {
   const [windowSize, setWindowSize] = useState<WindowsSize>({
@@ -16,11 +16,11 @@ export const useWindowSize = (): WindowsSize => {
       })
     }
 
-    window.addEventListener("resize", handleResize)
+    window.addEventListener('resize', handleResize)
 
     handleResize()
 
-    return () => window.removeEventListener("resize", handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   return windowSize

@@ -7,9 +7,9 @@ import InfoScreen from '@components/InfoScreen'
 import Layout from '@components/Layout'
 import StickyBar from '@components/StickyBar'
 
-const NoMoreTime:VFC = (): ReactElement => {
+const NoMoreTime: VFC = (): ReactElement => {
   const router = useRouter()
-  
+
   return (
     <Layout pageTitle="Sorry">
       <StickyBar />

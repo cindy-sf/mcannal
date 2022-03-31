@@ -23,10 +23,14 @@ describe('Layout', () => {
 
       // THEN
       expect(screen.getByText('Toto')).toBeInTheDocument()
-      expect(screen.getByText('Made with ❤️ by Cindy Saint Fleurant', { exact: true })).toBeInTheDocument()
+      expect(
+        screen.getByText('Made with ❤️ by Cindy Saint Fleurant', {
+          exact: true,
+        })
+      ).toBeInTheDocument()
     })
 
-    it("should render the dynamic title in head", () => {
+    it('should render the dynamic title in head', () => {
       // GIVEN
       render(
         <Layout pageTitle="Test page">

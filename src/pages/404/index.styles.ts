@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const Button = styled.button`
   font-family: 'Poppins Medium', sans-serif;
-  background-color: #090DE8;
-  width: 16rem; 
+  background-color: #090de8;
+  width: 16rem;
   height: 4rem;
   border-radius: ${({ theme }) => theme.radius.medium};
   border: none;

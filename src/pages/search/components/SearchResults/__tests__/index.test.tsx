@@ -10,14 +10,18 @@ describe('SearchResult', () => {
   it('should render the component correctly with the query text and multi search cards', () => {
     // GIVEN
     render(
-      <SearchResult
-        query="toto"
-        multiSearchInfos={filteredMultiSearchStub}
-      />
+      <SearchResult query="toto" multiSearchInfos={filteredMultiSearchStub} />
     )
 
     // THEN
-    expect(screen.getByText('Résulat(s) pour la recherche "toto"', { exact: true })).toBeInTheDocument()
-    expect(screen.getByText((filteredMultiSearchStub[0] as MultiSearchMovies).title, { exact: true })).toBeInTheDocument()
+    expect(
+      screen.getByText('Résulat(s) pour la recherche "toto"', { exact: true })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        (filteredMultiSearchStub[0] as MultiSearchMovies).title,
+        { exact: true }
+      )
+    ).toBeInTheDocument()
   })
 })

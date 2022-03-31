@@ -8,7 +8,10 @@ interface Props {
   withTransparentBg?: boolean
 }
 
-const StickyBar:FC<Props> = ({ children, withTransparentBg = false }): ReactElement => {
+const StickyBar: FC<Props> = ({
+  children,
+  withTransparentBg = false,
+}): ReactElement => {
   return (
     <StickyBarWrapper withTransparentBg={withTransparentBg}>
       <Logo />

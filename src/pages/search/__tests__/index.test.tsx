@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react' 
+import { render, screen } from '@testing-library/react'
 import fetchMock from 'jest-fetch-mock'
 import userEvent from '@testing-library/user-event'
 
@@ -12,7 +12,7 @@ import Search from '..'
 
 jest.mock('next/router', () => ({
   useRouter() {
-    return ({
+    return {
       route: '/',
       pathname: '',
       query: '',
@@ -21,10 +21,10 @@ jest.mock('next/router', () => ({
         on: jest.fn(),
         off: jest.fn(),
       },
-    })
+    }
   },
 }))
-const useRouter = jest.spyOn(require("next/router"), "useRouter")
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
 describe('Search', () => {
   afterEach(jest.clearAllMocks)
@@ -33,14 +33,14 @@ describe('Search', () => {
     global.fetch = jest.fn(() =>
       Promise.resolve({
         json: () => Promise.resolve(),
-      }),
+      })
     ) as jest.Mock
 
     describe('without query', () => {
       it('should render page correctly without query', async () => {
         // GIVEN
         useRouter.mockImplementation(() => ({
-          route: "/",
+          route: '/',
           query: {
             q: '',
           },
@@ -49,13 +49,15 @@ describe('Search', () => {
         render(<Search />)
 
         // THEN
-        expect(await screen.findByText('Effectuer une recherche', { exact: true })).toBeInTheDocument()
+        expect(
+          await screen.findByText('Effectuer une recherche', { exact: true })
+        ).toBeInTheDocument()
       })
 
       it('should focus the input by clicking on "Rechercher" button', async () => {
         // GIVEN
         useRouter.mockImplementation(() => ({
-          route: "/",
+          route: '/',
           query: {
             q: '',
           },
@@ -65,7 +67,9 @@ describe('Search', () => {
         render(<Search />)
 
         // WHEN
-        userEvent.click(await screen.findByRole('button', { name: 'Rechercher' }))
+        userEvent.click(
+          await screen.findByRole('button', { name: 'Rechercher' })
+        )
 
         // THEN
         expect(screen.getByPlaceholderText('Rechercher...')).toHaveFocus()
@@ -75,7 +79,7 @@ describe('Search', () => {
     describe('without data', () => {
       beforeEach(() => {
         useRouter.mockImplementation(() => ({
-          route: "/",
+          route: '/',
           query: {
             q: 'Saint laurent',
           },
@@ -88,12 +92,14 @@ describe('Search', () => {
         jest.spyOn(useMultiSearch, 'default').mockReturnValue({
           hasFetched: false,
         })
-        
+
         render(<Search />)
-        await(screen.getByDisplayValue('Saint laurent'))
+        await screen.getByDisplayValue('Saint laurent')
 
         // THEN
-        expect(screen.getByText('Chargement...', { exact: true })).toBeInTheDocument()
+        expect(
+          screen.getByText('Chargement...', { exact: true })
+        ).toBeInTheDocument()
       })
 
       it('should display search without result when there are no results', async () => {
@@ -106,7 +112,11 @@ describe('Search', () => {
         render(<Search />)
 
         // THEN
-        expect(await screen.findByText('Aucun resultat pour “ Saint laurent ”', { exact: true })).toBeInTheDocument()
+        expect(
+          await screen.findByText('Aucun resultat pour “ Saint laurent ”', {
+            exact: true,
+          })
+        ).toBeInTheDocument()
       })
     })
 
@@ -123,7 +133,7 @@ describe('Search', () => {
         })
 
         useRouter.mockImplementation(() => ({
-          route: "/",
+          route: '/',
           query: {
             q: ['Saint laurent'],
           },
@@ -139,15 +149,19 @@ describe('Search', () => {
 
         // THEN
         expect(await screen.findByText(movie.title)).toBeInTheDocument()
-        expect(screen.getByText('Voir plus', { exact: true })).toBeInTheDocument()
+        expect(
+          screen.getByText('Voir plus', { exact: true })
+        ).toBeInTheDocument()
       })
 
       it('should hide "Voir plus" text link when all data of the pages has been fetched', async () => {
         // GIVEN
-        fetchMock.mockResponse(JSON.stringify({
-          ...multiSearchWithoutPeopleStub,
-          page: 1,
-        }))
+        fetchMock.mockResponse(
+          JSON.stringify({
+            ...multiSearchWithoutPeopleStub,
+            page: 1,
+          })
+        )
         jest.spyOn(useMultiSearch, 'default').mockReturnValue({
           hasFetched: true,
           infos: multiSearchWithoutPeopleStub.results,

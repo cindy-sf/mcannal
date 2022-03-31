@@ -8,19 +8,21 @@ import StickyBar from '@components/StickyBar'
 
 import { getCredits, getDetails } from '@src/services/movies/details'
 
-import type { Credits, MovieDetails, MoviesDetailsApiResponseError } from '@src/types/movies'
+import type {
+  Credits,
+  MovieDetails,
+  MoviesDetailsApiResponseError,
+} from '@src/types/movies'
 
 import ErrorIllustration from '@assets/images/error-image.png'
 
-const DetailsInfos = dynamic(
-  () => import('./components/DetailsInfos'),
-)
+const DetailsInfos = dynamic(() => import('./components/DetailsInfos'))
 
-const ErrorScreen = dynamic(
-  () => import('@components/InfoScreen'),
-)
+const ErrorScreen = dynamic(() => import('@components/InfoScreen'))
 
-const isMovieError = (movie: Credits | MovieDetails | MoviesDetailsApiResponseError): movie is MoviesDetailsApiResponseError => {
+const isMovieError = (
+  movie: Credits | MovieDetails | MoviesDetailsApiResponseError
+): movie is MoviesDetailsApiResponseError => {
   return (movie as MoviesDetailsApiResponseError).success === false
 }
 
@@ -53,7 +55,7 @@ const Details: FC = (): ReactElement => {
           setIsFetching(true)
           setMovie(details)
           setCredits(credits)
-        } catch(error) {
+        } catch (error) {
           setHasError(true)
         } finally {
           setIsFetching(false)

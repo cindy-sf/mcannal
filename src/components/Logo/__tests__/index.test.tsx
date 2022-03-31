@@ -10,7 +10,7 @@ jest.mock('next/router', () => ({
 
 describe('Logo', () => {
   describe('render', () => {
-    it("should render correctly the logo with the brand title", () => {
+    it('should render correctly the logo with the brand title', () => {
       // GIVEN
       render(<Logo />)
 
@@ -19,11 +19,11 @@ describe('Logo', () => {
       expect(screen.getByText('MyCanal ++')).toBeInTheDocument()
     })
 
-    it("should redirect to home by clicking on brand text link", () => {
+    it('should redirect to home by clicking on brand text link', () => {
       // GIVEN
       const mockedUseRouter = useRouter as jest.Mock
       const push = jest.fn()
-        mockedUseRouter.mockImplementation(() => ({
+      mockedUseRouter.mockImplementation(() => ({
         push,
       }))
       render(<Logo />)

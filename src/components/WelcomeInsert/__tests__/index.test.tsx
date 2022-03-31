@@ -10,9 +10,11 @@ describe('Welcome insert', () => {
 
       // THEN
       expect(screen.getByText(/Bienvenue/)).toBeInTheDocument()
-      expect(screen.getByText(/Voici les fonctionnalités disponibles/)).toBeInTheDocument()
+      expect(
+        screen.getByText(/Voici les fonctionnalités disponibles/)
+      ).toBeInTheDocument()
       expect(screen.getByText(/Bonne visite/)).toBeInTheDocument()
-      expect(screen.getByRole("img")).toBeInTheDocument()
+      expect(screen.getByRole('img')).toBeInTheDocument()
     })
   })
 })

@@ -1,6 +1,6 @@
 import { waitFor } from '@testing-library/dom'
 
-import { LANGUAGE, MOVIE_BASE_PATH } from '@src/services/constants'  
+import { LANGUAGE, MOVIE_BASE_PATH } from '@src/services/constants'
 import { MOVIE_DB_API_KEY } from '../../../../../credential'
 
 import { getCredits, getDetails } from '..'
@@ -9,7 +9,7 @@ describe('details', () => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       json: () => Promise.resolve(),
-    }),
+    })
   ) as jest.Mock
   afterEach(jest.clearAllMocks)
 
@@ -20,7 +20,9 @@ describe('details', () => {
 
       // THEN
       await waitFor(() => {
-        expect(global.fetch).toHaveBeenCalledWith(`${MOVIE_BASE_PATH}/12345?api_key=${MOVIE_DB_API_KEY}&language=${LANGUAGE}`)
+        expect(global.fetch).toHaveBeenCalledWith(
+          `${MOVIE_BASE_PATH}/12345?api_key=${MOVIE_DB_API_KEY}&language=${LANGUAGE}`
+        )
       })
     })
   })
@@ -32,9 +34,10 @@ describe('details', () => {
 
       // THEN
       await waitFor(() => {
-        expect(global.fetch).toHaveBeenCalledWith(`${MOVIE_BASE_PATH}/12345/credits?api_key=${MOVIE_DB_API_KEY}&language=${LANGUAGE}`)
+        expect(global.fetch).toHaveBeenCalledWith(
+          `${MOVIE_BASE_PATH}/12345/credits?api_key=${MOVIE_DB_API_KEY}&language=${LANGUAGE}`
+        )
       })
     })
   })
 })
-  

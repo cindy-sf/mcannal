@@ -52,12 +52,12 @@ export const MovieDetailsContainer = styled.div`
 export const WaveContainer = styled.div`
   max-width: 115rem;
   height: 5rem;
-  position: absolute; 
-  left: 0; 
+  position: absolute;
+  left: 0;
   right: 0;
   top: 0;
-  margin-left: auto; 
-  margin-right: auto; 
+  margin-left: auto;
+  margin-right: auto;
   z-index: -1;
   height: 15rem;
 `

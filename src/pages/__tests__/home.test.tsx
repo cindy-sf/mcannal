@@ -7,7 +7,7 @@ import * as useTrendingData from '@src/hooks/useTrendingData'
 import { listStub as moviesListStub } from '@src/__mocks__/stubs/movies/list'
 import { listStub as showsListStub } from '@src/__mocks__/stubs/shows/list'
 
-import Home from '..' 
+import Home from '..'
 
 describe('Home', () => {
   beforeEach(() => {
@@ -40,7 +40,9 @@ describe('Home', () => {
         expect(await screen.findByText('À ne pas manquer')).toBeInTheDocument()
         expect(screen.getByText('Nouveautés')).toBeInTheDocument()
         expect(screen.getByText('Les mieux notés')).toBeInTheDocument()
-        expect(screen.getByText(/Voici les fonctionnalités disponibles/)).toBeInTheDocument()
+        expect(
+          screen.getByText(/Voici les fonctionnalités disponibles/)
+        ).toBeInTheDocument()
       })
 
       it('should render the the tvShows section correctly by clicking on "Series" badge', async () => {

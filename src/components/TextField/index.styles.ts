@@ -7,7 +7,7 @@ export const Icon = styled.button`
   cursor: pointer;
   background: none;
   border: none;
-` 
+`
 
 export const Input = styled.input`
   border: none;
@@ -20,7 +20,7 @@ export const Input = styled.input`
     border-bottom-color: ${({ theme }) => theme.colors.purple};
   }
 
-  ::placeholder { 
+  ::placeholder {
     color: ${({ theme }) => theme.colors.black};
     font-family: 'Poppins Italic', sans-serif;
   }

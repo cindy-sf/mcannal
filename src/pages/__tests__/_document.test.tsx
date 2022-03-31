@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 
-import Document from '../_document' 
+import Document from '../_document'
 
 jest.mock('next/head', () => {
   return {

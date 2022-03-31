@@ -21,16 +21,18 @@ describe('InfoScreen', () => {
 
     // THEN
     expect(screen.getByText('Some title', { exact: true })).toBeInTheDocument()
-    expect(screen.getByAltText('Some title', { exact: true })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Cta title' })).toBeInTheDocument()
+    expect(
+      screen.getByAltText('Some title', { exact: true })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Cta title' })
+    ).toBeInTheDocument()
     expect(screen.getByText('Some title', { exact: true })).toBeInTheDocument()
   })
 
   it('should happend something by clicking on the cta', () => {
     // GIVEN
-    render(
-      <InfoScreen {...defaultProps} />
-    )
+    render(<InfoScreen {...defaultProps} />)
 
     // WHEN
     userEvent.click(screen.getByRole('button', { name: 'Cta title' }))

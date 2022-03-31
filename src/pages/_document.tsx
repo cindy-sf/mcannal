@@ -1,4 +1,10 @@
-import NextDocumet, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
+import NextDocumet, {
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 const Document = () => {
@@ -47,8 +53,7 @@ Document.getInitialProps = async (ctx: DocumentContext) => {
   try {
     ctx.renderPage = () =>
       originalRenderPage({
-        enhanceApp: (App) => (props) =>
-          sheet.collectStyles(<App {...props} />),
+        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
       })
 
     const initialProps = await NextDocumet.getInitialProps(ctx)

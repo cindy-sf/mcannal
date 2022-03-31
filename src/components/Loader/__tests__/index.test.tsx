@@ -4,7 +4,7 @@ import Loader from '..'
 
 describe('Loader', () => {
   describe('render', () => {
-    it("should render the loading text", () => {
+    it('should render the loading text', () => {
       // GIVEN
       render(<Loader />)
 

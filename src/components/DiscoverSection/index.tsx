@@ -4,24 +4,22 @@ import TrendingCard from '@components/TrendingCard'
 
 import type { TrendingData } from '@src/types/common'
 
-import {
-  TrendingCardContainer,
-  Section,
-} from './index.styles'
+import { TrendingCardContainer, Section } from './index.styles'
 import Text from '@components/Text'
 
-const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }): ReactElement => (
+const DiscoverSection: VFC<TrendingData> = ({
+  popular,
+  topRated,
+  upcoming,
+}): ReactElement => (
   <>
     <Section>
       <Text as="h2" size="large">
         À ne pas manquer
       </Text>
       <TrendingCardContainer>
-        {popular.map(movie => (
-          <TrendingCard
-            key={movie.id}
-            data={movie}
-          />
+        {popular.map((movie) => (
+          <TrendingCard key={movie.id} data={movie} />
         ))}
       </TrendingCardContainer>
     </Section>
@@ -30,11 +28,8 @@ const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }): Rea
         Les mieux notés
       </Text>
       <TrendingCardContainer>
-        {topRated.map(movie => (
-          <TrendingCard
-            key={movie.id}
-            data={movie}
-          />
+        {topRated.map((movie) => (
+          <TrendingCard key={movie.id} data={movie} />
         ))}
       </TrendingCardContainer>
     </Section>

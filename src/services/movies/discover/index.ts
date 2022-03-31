@@ -1,10 +1,12 @@
-import { DISCOVER_MOVIE_BASE_PATH } from '@src/services/constants'  
+import { DISCOVER_MOVIE_BASE_PATH } from '@src/services/constants'
 
 import type { DiscoverMoviesApiResponse } from '@src/types/movies'
 
 export type RequestType = 'upcoming' | 'topRated' | 'popular'
 
-export const getTrendings = async (requestType: RequestType): Promise<DiscoverMoviesApiResponse> => {
+export const getTrendings = async (
+  requestType: RequestType
+): Promise<DiscoverMoviesApiResponse> => {
   let url = `${DISCOVER_MOVIE_BASE_PATH}&limit=10`
 
   switch (requestType) {
@@ -20,7 +22,7 @@ export const getTrendings = async (requestType: RequestType): Promise<DiscoverMo
     default:
       break
   }
-  
+
   const data = await fetch(url)
   return await data.json()
 }

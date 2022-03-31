@@ -11,7 +11,7 @@ export const Section = styled.div`
   justify-content: space-between;
   width: 100%;
   border-radius: ${({ theme }) => theme.radius.large};
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   padding: ${({ theme }) => theme.space.large};
   padding-bottom: ${({ theme }) => theme.space.none};
   margin-top: ${({ theme }) => theme.space.large};

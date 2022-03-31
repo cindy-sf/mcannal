@@ -9,15 +9,13 @@ interface Props {
   pageTitle: string
 }
 
-const Layout:FC<Props> = ({ children, pageTitle }): ReactElement => {
+const Layout: FC<Props> = ({ children, pageTitle }): ReactElement => {
   return (
     <>
       <Head>
         <title>MyCanal ++ | {pageTitle}</title>
       </Head>
-      <Main>
-        {children}
-      </Main>
+      <Main>{children}</Main>
       <Footer>
         <Text textAlign="center" size="small">
           Made with ❤️ by Cindy Saint Fleurant

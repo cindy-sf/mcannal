@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useRouter } from 'next/router'
 
-import { filteredMultiSearchStub } from '@src/__mocks__/stubs/common' 
+import { filteredMultiSearchStub } from '@src/__mocks__/stubs/common'
 
 import type { MultiSearchMovies, MultiSearchShows } from '@src/types/common'
 
@@ -16,25 +16,31 @@ describe('MultiSearchCard', () => {
   const multiSearchData = filteredMultiSearchStub[0] as MultiSearchMovies
 
   describe('render', () => {
-    it("should the movie card correctly with title and poster", () => {
+    it('should the movie card correctly with title and poster', () => {
       // GIVEN
       render(<MultiSearchCard data={multiSearchData} />)
 
       // THEN
       expect(screen.getByText(multiSearchData.title)).toBeInTheDocument()
-      expect(screen.getByTestId(`${multiSearchData.title} --poster`)).toBeInTheDocument()
+      expect(
+        screen.getByTestId(`${multiSearchData.title} --poster`)
+      ).toBeInTheDocument()
     })
 
-    it("should display a fallback picture without movie poster", () => {
+    it('should display a fallback picture without movie poster', () => {
       // GIVEN
-      render(<MultiSearchCard data={{ ...multiSearchData, poster_path: null }} />)
+      render(
+        <MultiSearchCard data={{ ...multiSearchData, poster_path: null }} />
+      )
 
       // THEN
       expect(screen.getByText(multiSearchData.title)).toBeInTheDocument()
-      expect(screen.getByTestId(`${multiSearchData.title} --poster-fallback`)).toBeInTheDocument()
+      expect(
+        screen.getByTestId(`${multiSearchData.title} --poster-fallback`)
+      ).toBeInTheDocument()
     })
 
-    it("should display the good title for tv show", () => {
+    it('should display the good title for tv show', () => {
       // GIVEN
       const multiSearchDataShow = filteredMultiSearchStub[1] as MultiSearchShows
       render(<MultiSearchCard data={multiSearchDataShow} />)
@@ -43,7 +49,7 @@ describe('MultiSearchCard', () => {
       expect(screen.getByText(multiSearchDataShow.name)).toBeInTheDocument()
     })
 
-    it("should display the fallback title without overview", () => {
+    it('should display the fallback title without overview', () => {
       // GIVEN
       render(
         <MultiSearchCard
@@ -55,24 +61,26 @@ describe('MultiSearchCard', () => {
       )
 
       // THEN
-      expect(screen.getByText('Pas de description pour ce média...', { exact: true })).toBeInTheDocument()
+      expect(
+        screen.getByText('Pas de description pour ce média...', { exact: true })
+      ).toBeInTheDocument()
     })
   })
 
   describe('card redirection', () => {
     const mockedUseRouter = useRouter as jest.Mock
 
-    it("should redirect to movie detail page by clicking on the card by default", () => {
+    it('should redirect to movie detail page by clicking on the card by default', () => {
       // GIVEN
       const push = jest.fn()
       mockedUseRouter.mockImplementation(() => ({
         push,
       }))
-    render(<MultiSearchCard data={multiSearchData} />)
-  
+      render(<MultiSearchCard data={multiSearchData} />)
+
       // WHEN
       userEvent.click(screen.getByText(multiSearchData.title))
-  
+
       // THEN
       expect(push).toHaveBeenCalledTimes(1)
       expect(push).toHaveBeenCalledWith({
@@ -81,17 +89,21 @@ describe('MultiSearchCard', () => {
       })
     })
 
-    it("should redirect to no more time page by clicking on a tv show card", () => {
+    it('should redirect to no more time page by clicking on a tv show card', () => {
       // GIVEN
       const push = jest.fn()
       mockedUseRouter.mockImplementation(() => ({
         push,
       }))
-      render(<MultiSearchCard data={filteredMultiSearchStub[0] as MultiSearchShows} />)
-  
+      render(
+        <MultiSearchCard
+          data={filteredMultiSearchStub[0] as MultiSearchShows}
+        />
+      )
+
       // WHEN
       userEvent.click(screen.getByText(multiSearchData.title))
-  
+
       // THEN
       expect(push).toHaveBeenCalledTimes(1)
       expect(push).toHaveBeenCalledWith({

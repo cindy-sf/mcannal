@@ -8,17 +8,12 @@ import LogoIllustration from '@assets/logo.svg'
 
 import { LogoWrapper } from './index.styles'
 
-const Logo:VFC = (): ReactElement => {
+const Logo: VFC = (): ReactElement => {
   const router = useRouter()
 
   return (
     <LogoWrapper>
-      <Image
-        src={LogoIllustration}
-        width={36}
-        height={36}  
-        alt="MyCanal ++"
-      />
+      <Image src={LogoIllustration} width={36} height={36} alt="MyCanal ++" />
       <Text
         cursor="pointer"
         role="link"

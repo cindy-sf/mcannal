@@ -42,7 +42,7 @@ export interface DiscoverMoviesApiResponse {
 
 export interface Genre {
   id: number
-  name:  string
+  name: string
 }
 
 export interface MovieDetails {
@@ -103,7 +103,13 @@ export interface Movies {
   vote_average: number
 }
 
-type MovieStatus = 'Rumored' | 'Planned' | 'In Production' | 'Post Production' | 'Released' | 'Canceled'
+type MovieStatus =
+  | 'Rumored'
+  | 'Planned'
+  | 'In Production'
+  | 'Post Production'
+  | 'Released'
+  | 'Canceled'
 
 interface ProductionConpanies {
   name: string

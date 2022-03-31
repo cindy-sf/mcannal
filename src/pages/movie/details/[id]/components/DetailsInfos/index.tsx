@@ -2,7 +2,7 @@ import React, { ReactElement, VFC } from 'react'
 import Image from 'next/image'
 
 import Badge from '@components/Badge'
-import Rating  from '@components/Rating'
+import Rating from '@components/Rating'
 import Text from '@components/Text'
 
 import { MOVIE_DB_BASE_POSTER_PATH } from '@src/services/constants'
@@ -39,19 +39,16 @@ const convertMovieDuration = (movieDuration: number | null): string => {
 export const DetailsInfos: VFC<Props> = ({ movie, credits }): ReactElement => (
   <>
     <WaveContainer>
-      <Image
-        src={Wave}
-        width="100%"
-        height={20}
-        layout="responsive"
-      />
+      <Image src={Wave} width="100%" height={20} layout="responsive" />
     </WaveContainer>
     <MovieDetailsContainer>
       <ImageContainer>
         <Image
-          src={movie.poster_path
-            ? `${MOVIE_DB_BASE_POSTER_PATH}/${movie.poster_path}`
-            : CardPlaceholder}
+          src={
+            movie.poster_path
+              ? `${MOVIE_DB_BASE_POSTER_PATH}/${movie.poster_path}`
+              : CardPlaceholder
+          }
           width={240}
           height={350}
           layout="fixed"
@@ -67,9 +64,10 @@ export const DetailsInfos: VFC<Props> = ({ movie, credits }): ReactElement => (
         {movie.title}
       </Text>
       <Text marginTop="xSmall">
-        {credits.crew.find(person => person.job === 'Director')?.name || 'Réalisateur inconnu'}
+        {credits.crew.find((person) => person.job === 'Director')?.name ||
+          'Réalisateur inconnu'}
       </Text>
-      <Rating  notation={movie.vote_average} />
+      <Rating notation={movie.vote_average} />
       <Badges>
         {movie.genres?.map(({ id, name }) => (
           <Badge key={id} title={name} color="black" />
@@ -77,27 +75,21 @@ export const DetailsInfos: VFC<Props> = ({ movie, credits }): ReactElement => (
       </Badges>
     </MovieDetailsContainer>
     <Text textAlign="center" marginTop="small">
-      {movie.release_date.split('-').reverse().join('/')} • {convertMovieDuration(movie.runtime)} • {movie.original_language}
+      {movie.release_date.split('-').reverse().join('/')} •{' '}
+      {convertMovieDuration(movie.runtime)} • {movie.original_language}
     </Text>
-    <Text
-      as="h3"
-      size="large"
-      marginTop="large"
-    >
+    <Text as="h3" size="large" marginTop="large">
       Résumé
     </Text>
     <Text marginTop="medium" size="medium">
-      {movie.overview || 'Désolé, nous aucun n’avons pas de résumé pour ce film...'}
+      {movie.overview ||
+        'Désolé, nous aucun n’avons pas de résumé pour ce film...'}
     </Text>
-    <Text
-      as="h3"
-      size="large"
-      marginTop="xLarge"
-    >
+    <Text as="h3" size="large" marginTop="xLarge">
       Casting
     </Text>
     <CastingContainer>
-      {credits.cast.map(person => (
+      {credits.cast.map((person) => (
         <ImageWrapper key={person.id}>
           <Image
             title={`${person.name} | ${person.character}`}
@@ -112,7 +104,7 @@ export const DetailsInfos: VFC<Props> = ({ movie, credits }): ReactElement => (
         <Text>
           Désolé, nous aucun n’avons pas trouvé d’acteur pour ce film...
         </Text>
-      )} 
+      )}
     </CastingContainer>
   </>
 )

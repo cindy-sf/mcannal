@@ -10,9 +10,12 @@ export type TrendingDataInfos = {
   trendingShows?: TrendingData
 }
 
-export const useTrendingData = (discoverType: DiscoverType): TrendingDataInfos => {
-  const [trendingDataInfos, setTrendingDataInfos] = useState<TrendingDataInfos>()
-  
+export const useTrendingData = (
+  discoverType: DiscoverType
+): TrendingDataInfos => {
+  const [trendingDataInfos, setTrendingDataInfos] =
+    useState<TrendingDataInfos>()
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,7 +27,7 @@ export const useTrendingData = (discoverType: DiscoverType): TrendingDataInfos =
             (await getTrendingsShows('topRated')).results,
             (await getTrendingsShows('upcoming')).results,
           ])
-          setTrendingDataInfos(currentState => ({
+          setTrendingDataInfos((currentState) => ({
             trendingShows: {
               popular,
               upcoming,
@@ -42,7 +45,7 @@ export const useTrendingData = (discoverType: DiscoverType): TrendingDataInfos =
           (await getTrendingsMovies('topRated')).results,
           (await getTrendingsMovies('upcoming')).results,
         ])
-        setTrendingDataInfos(currentState => ({
+        setTrendingDataInfos((currentState) => ({
           trendingMovies: {
             popular,
             upcoming,

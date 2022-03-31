@@ -4,7 +4,7 @@ import Badge from '..'
 
 describe('Badge', () => {
   describe('render', () => {
-    it("should render correctly the badge with his title", () => {
+    it('should render correctly the badge with his title', () => {
       // GIVEN
       render(
         <Badge

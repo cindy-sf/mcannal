@@ -1,7 +1,10 @@
 import { renderHook } from '@testing-library/react-hooks'
 import fetchMock from 'jest-fetch-mock'
 
-import { filteredMultiSearchStub, multiSearchStub } from '@src/__mocks__/stubs/common'
+import {
+  filteredMultiSearchStub,
+  multiSearchStub,
+} from '@src/__mocks__/stubs/common'
 
 import { useMultiSearch } from '..'
 
@@ -15,7 +18,9 @@ describe('useMultiSearch', () => {
 
   it('should retrieve only movies and tv shows', async () => {
     // GIVEN
-    const { result, waitForNextUpdate } = renderHook(() => useMultiSearch(1, 'toto'))
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useMultiSearch(1, 'toto')
+    )
 
     // THEN
     await waitForNextUpdate()
@@ -39,7 +44,9 @@ describe('useMultiSearch', () => {
 
   it('should concat if page number is greater than 1', async () => {
     // GIVEN
-    const { result, waitForNextUpdate } = renderHook(() => useMultiSearch(2, 'toto'))
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useMultiSearch(2, 'toto')
+    )
 
     // THEN
     await waitForNextUpdate()

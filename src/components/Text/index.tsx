@@ -1,6 +1,21 @@
 import React, { VFC, ReactElement, ReactNode } from 'react'
 
-import type { AllowedColors, AllowedCursor, AllowedFonts, AllowedFontSizes, AllowedOverflow, AllowedRole, AllowedSpaces, AllowedTags, AllowedTextOverflow, AllowedWhiteSpace, FontWeight, TextAlignPosition, TextDecoration, ThemeAttributes } from '@src/types/theme'
+import type {
+  AllowedColors,
+  AllowedCursor,
+  AllowedFonts,
+  AllowedFontSizes,
+  AllowedOverflow,
+  AllowedRole,
+  AllowedSpaces,
+  AllowedTags,
+  AllowedTextOverflow,
+  AllowedWhiteSpace,
+  FontWeight,
+  TextAlignPosition,
+  TextDecoration,
+  ThemeAttributes,
+} from '@src/types/theme'
 
 import { StyledText } from './index.styles'
 
@@ -28,10 +43,8 @@ export interface Props {
   textOverflow?: AllowedTextOverflow
 }
 
-const Text:VFC<Props> = (props): ReactElement => (
-  <StyledText {...props}>
-    {props.children}
-  </StyledText>
+const Text: VFC<Props> = (props): ReactElement => (
+  <StyledText {...props}>{props.children}</StyledText>
 )
 
 Text.defaultProps = {

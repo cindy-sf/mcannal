@@ -7,7 +7,7 @@ export interface DiscoverShowsApiResponse {
 
 export interface Genre {
   id: number
-  name:  string
+  name: string
 }
 
 export interface TvShows {
@@ -15,13 +15,13 @@ export interface TvShows {
   popularity: number
   id: number
   backdrop_path: string | null
-  vote_average:number
+  vote_average: number
   overview: string
   first_air_date: string
   origin_country: string[]
   genre_ids: number[]
   original_language: string
-  vote_count:number
-  name:string
-  original_name:string
+  vote_count: number
+  name: string
+  original_name: string
 }

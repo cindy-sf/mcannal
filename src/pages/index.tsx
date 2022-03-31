@@ -15,12 +15,9 @@ import type { DiscoverType } from '@src/types/common'
 
 import { Badges } from './index.styles'
 
-const DiscoverSection = dynamic(
-  () => import('@components/DiscoverSection'),
-  {
-    loading: () => <Loader />,
-  },
-)
+const DiscoverSection = dynamic(() => import('@components/DiscoverSection'), {
+  loading: () => <Loader />,
+})
 
 interface BadgeConfig {
   title: 'Films' | 'Séries'
@@ -49,7 +46,7 @@ const Home: NextPage = () => {
             title={title}
             color={discoverType === type ? 'purple' : 'black'}
             variant={discoverType === type ? 'contained' : 'outlined'}
-            onClick={():void => setDiscoverType(type)}
+            onClick={(): void => setDiscoverType(type)}
           />
         ))}
       </Badges>

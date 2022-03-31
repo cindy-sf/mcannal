@@ -11,31 +11,27 @@ import { useMultiSearch } from '@src/hooks/useMultiSearch'
 import SearchWithoutQueryIllustration from '@assets/images/search-without-query.png'
 import SearchWithoutQueryResults from '@assets/images/search-without-results.png'
 
-const Loader = dynamic(
-  () => import('@components/Loader'),
-)
+const Loader = dynamic(() => import('@components/Loader'))
 
-const SearchEmpty = dynamic(
-  () => import('@components/InfoScreen'),
-)
+const SearchEmpty = dynamic(() => import('@components/InfoScreen'))
 
-const SearchResults = dynamic(
-  () => import('./components/SearchResults'),
-)
+const SearchResults = dynamic(() => import('./components/SearchResults'))
 
-const Text = dynamic(
-  () => import('@components/Text'),
-)
+const Text = dynamic(() => import('@components/Text'))
 
-const Search:VFC = (): ReactElement => {
+const Search: VFC = (): ReactElement => {
   const [query, setQuery] = useState<string>('')
   const [page, setPage] = useState<number>(1)
   const router = useRouter()
   const textFieldRef = useRef<HTMLInputElement>(null)
-  const { hasFetched, infos: multiSearchData, totalPage } = useMultiSearch(page, query)
+  const {
+    hasFetched,
+    infos: multiSearchData,
+    totalPage,
+  } = useMultiSearch(page, query)
 
   useEffect(() => {
-    const getQuery = ():void => {
+    const getQuery = (): void => {
       if (!router.isReady) return
 
       if (router.query.q) {
@@ -56,9 +52,11 @@ const Search:VFC = (): ReactElement => {
   // isolate those logic to some consts for comprehension
   const shouldDisplayLoader = !hasFetched && query
   const shouldDisplaySearchWithoutQuery = router.isReady && !router.query.q
-  const shouldDisplaySearchWithoutResults = hasFetched && query && !multiSearchData?.length
+  const shouldDisplaySearchWithoutResults =
+    hasFetched && query && !multiSearchData?.length
   const shouldDisplaySearchWithResults = !!multiSearchData?.length
-  const shouldDisplayShowMoreText = hasFetched && !!multiSearchData?.length && page !== totalPage 
+  const shouldDisplayShowMoreText =
+    hasFetched && !!multiSearchData?.length && page !== totalPage
 
   return (
     <Layout pageTitle="Rechercher">
@@ -68,9 +66,7 @@ const Search:VFC = (): ReactElement => {
       <StickyBar key={query}>
         <TextField initialValue={query} fieldRef={textFieldRef} />
       </StickyBar>
-      {shouldDisplayLoader && (
-        <Loader />
-      )}
+      {shouldDisplayLoader && <Loader />}
       {shouldDisplaySearchWithoutResults && (
         <SearchEmpty
           title={`Aucun resultat pour “ ${query} ”`}
@@ -92,14 +88,11 @@ const Search:VFC = (): ReactElement => {
         />
       )}
       {shouldDisplaySearchWithResults && (
-        <SearchResults
-          multiSearchInfos={multiSearchData}
-          query={query}
-        />
+        <SearchResults multiSearchInfos={multiSearchData} query={query} />
       )}
       {shouldDisplayShowMoreText && (
         <Text
-          onClick={(): void => setPage(currentPage => (currentPage + 1))}
+          onClick={(): void => setPage((currentPage) => currentPage + 1)}
           cursor="pointer"
           textAlign="center"
           textDecoration="underline"

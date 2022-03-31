@@ -24,8 +24,10 @@ describe('useTrendingData', () => {
 
     it('should fetch trending movies when the discover type is movies', async () => {
       // GIVEN
-      const { result, waitForNextUpdate } = renderHook(() => useTrendingData('movies'))
-  
+      const { result, waitForNextUpdate } = renderHook(() =>
+        useTrendingData('movies')
+      )
+
       // THEN
       await waitForNextUpdate()
       expect(result.current).toEqual({
@@ -42,17 +44,18 @@ describe('useTrendingData', () => {
       // GIVEN
       // mock the intialState for getting the movies on first render
       const realUseState = React.useState
-        jest.spyOn(getTrendingsMovies, 'default')
-        jest
-          .spyOn(React, 'useState')
-          .mockImplementationOnce(() => realUseState<TrendingDataInfos>({
+      jest.spyOn(getTrendingsMovies, 'default')
+      jest.spyOn(React, 'useState').mockImplementationOnce(
+        () =>
+          realUseState<TrendingDataInfos>({
             trendingShows: undefined,
             trendingMovies: {
               popular: moviesListStub.results,
               topRated: moviesListStub.results,
               upcoming: moviesListStub.results,
             },
-          }) as any)
+          }) as any
+      )
       renderHook(() => useTrendingData('movies'))
 
       // THEN
@@ -67,8 +70,10 @@ describe('useTrendingData', () => {
 
     it('should fetch trending shows when the discover type is shows', async () => {
       // GIVEN
-      const { result, waitForNextUpdate } = renderHook(() => useTrendingData('tvShows'))
-  
+      const { result, waitForNextUpdate } = renderHook(() =>
+        useTrendingData('tvShows')
+      )
+
       // THEN
       await waitForNextUpdate()
       expect(result.current).toEqual({
@@ -85,17 +90,18 @@ describe('useTrendingData', () => {
       // GIVEN
       // mock the intialState for getting the shows on first render
       const realUseState = React.useState
-        jest.spyOn(getTrendingsShows, 'default')
-        jest
-          .spyOn(React, 'useState')
-          .mockImplementationOnce(() => realUseState<TrendingDataInfos>({
+      jest.spyOn(getTrendingsShows, 'default')
+      jest.spyOn(React, 'useState').mockImplementationOnce(
+        () =>
+          realUseState<TrendingDataInfos>({
             trendingMovies: undefined,
             trendingShows: {
               popular: showsListStub.results,
               topRated: showsListStub.results,
               upcoming: showsListStub.results,
             },
-          }) as any)
+          }) as any
+      )
       renderHook(() => useTrendingData('tvShows'))
 
       // THEN

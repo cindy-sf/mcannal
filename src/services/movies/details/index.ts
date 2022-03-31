@@ -1,5 +1,5 @@
 import { LANGUAGE, MOVIE_BASE_PATH } from '@src/services/constants'
-import { MOVIE_DB_API_KEY } from '../../../../credential'
+import { MOVIE_DB_API_KEY } from '@src/services/constants'
 
 import type {
   Credits,

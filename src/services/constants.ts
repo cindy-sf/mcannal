@@ -1,4 +1,4 @@
-import { MOVIE_DB_API_KEY } from '../../credential'
+export const MOVIE_DB_API_KEY = process.env.MOVIE_DB_API_KEY
 
 const API_VERSION = '3'
 export const LANGUAGE = 'fr'

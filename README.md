@@ -1,6 +1,7 @@
 # MyCanal++ 🎬
 
 ## Table of contents :
+
 - [Presentation](#presentation)
 - [Prerequisite](#prerequisite)
 - [Installation](#installation)
@@ -21,15 +22,21 @@ Here is a small overview of the website 👇
 You can check the [Figma](https://www.figma.com/file/n0CAOvWZ2vDMs1vzhGVpKy/MyCanal%2B%2B?node-id=10%3A964) and the [workflow](https://www.figma.com/proto/n0CAOvWZ2vDMs1vzhGVpKy/MyCanal%2B%2B?node-id=10%3A964&starting-point-node-id=10%3A964&scaling=scale-down) if you want.
 
 ## Prerequisite
-- ⚠️ As said above, this project is build with The Movie DB API. You have to generate an api key for the proper operation of the application.
-You can do it over [here](https://www.themoviedb.org/settings/api)
+
+- Have [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) installed
+- This web app is running with node v16.14.2
+- Use the good version of npm `nvm use`
+- As said above, this project is build with The Movie DB API. You have to generate an api key for the proper operation of the application.
+  You can do it over [here](https://www.themoviedb.org/settings/api)
 
 ## Installation
-- Clone the project ```git clone https://github.com/cindy-sf/mcannal.git```
+
+- Clone the project `git clone https://github.com/cindy-sf/mcannal.git`
 - Now, adding the generated Movie DB api key :
-    For this, create a `credential.js` file in the root of the project, and add this following line :
+  For this, create a `credential.ts` file in the root of the project, and add this following line :
+
 ```javascript
-export const MOVIE_DB_API_KEY = YOUR_MOVIE_DB_API_KEY
+export const MOVIE_DB_API_KEY = 'YOUR_MOVIE_DB_API_KEY'
 ```
 
 - Finally, install the dependencies by running `npm i`.

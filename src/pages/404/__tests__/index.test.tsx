@@ -1,4 +1,4 @@
-import { useRouter, RouterEvent } from 'next/router'
+import { useRouter } from 'next/router'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -24,7 +24,8 @@ describe('404', () => {
   it('should do a redirection to the home page by clicking on "accueil" button', () => {
     // GIVEN
     const routerPush = jest.fn()
-    useRouter.mockImplementation(() => ({
+    const mockedUseRouter = useRouter as jest.Mock
+    mockedUseRouter.mockImplementation(() => ({
       push: routerPush,
     }))
     render(<NotFoundPage />)

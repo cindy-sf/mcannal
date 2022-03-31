@@ -21,8 +21,9 @@ describe('Logo', () => {
 
     it("should redirect to home by clicking on brand text link", () => {
       // GIVEN
+      const mockedUseRouter = useRouter as jest.Mock
       const push = jest.fn()
-        useRouter.mockImplementation(() => ({
+        mockedUseRouter.mockImplementation(() => ({
         push,
       }))
       render(<Logo />)

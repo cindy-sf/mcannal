@@ -45,10 +45,12 @@ describe('TrendingCard', () => {
   })
 
   describe('redirection', () => {
+    const mockedUseRouter = useRouter as jest.Mock
+
     it("should redirect to movie detail page by clicking on the card", () => {
       // GIVEN
       const push = jest.fn()
-        useRouter.mockImplementation(() => ({
+      mockedUseRouter.mockImplementation(() => ({
         push,
       }))
   
@@ -68,7 +70,7 @@ describe('TrendingCard', () => {
     it("should redirect to no more time page by clicking on a tv show card", () => {
       // GIVEN
       const push = jest.fn()
-        useRouter.mockImplementation(() => ({
+        mockedUseRouter.mockImplementation(() => ({
         push,
       }))
       const show = tvShowsListStub.results[1]

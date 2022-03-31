@@ -1,3 +1,4 @@
+import { ThemeAttributes } from '@src/types/theme'
 import styled from 'styled-components'
 
 import type { Color, Size, Variant } from './index'
@@ -16,7 +17,6 @@ export const BadgeContainer = styled.div<{ variant: Variant, color?: Color, size
 
   ${({ variant }) => variant === 'outlined' && `
     color: #000;
-    color: ${({ theme }) => theme.colors.white};
     border: 0.1rem solid;
     background-color: #fff;
   `}

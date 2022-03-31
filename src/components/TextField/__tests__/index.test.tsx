@@ -35,8 +35,10 @@ describe('Text Field', () => {
 
   describe('research', () => {
     const routerPush = jest.fn()
+    const mockedUseRouter = useRouter as jest.Mock
+
     beforeEach(() => {
-      useRouter.mockImplementation(() => ({
+      mockedUseRouter.mockImplementation(() => ({
         push: routerPush,
       }))
     })

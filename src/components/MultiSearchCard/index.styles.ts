@@ -25,7 +25,7 @@ export const ImageWrapper = styled.div`
   }
 `
 
-export const MultiSearchCardWrapper = styled.a<{ horizontal?: boolean }>`
+export const MultiSearchCardWrapper = styled.a`
   margin-bottom: ${({ theme }) => theme.space.large};
   display: flex;
 `

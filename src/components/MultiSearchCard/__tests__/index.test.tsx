@@ -60,10 +60,12 @@ describe('MultiSearchCard', () => {
   })
 
   describe('card redirection', () => {
+    const mockedUseRouter = useRouter as jest.Mock
+
     it("should redirect to movie detail page by clicking on the card by default", () => {
       // GIVEN
       const push = jest.fn()
-      useRouter.mockImplementation(() => ({
+      mockedUseRouter.mockImplementation(() => ({
         push,
       }))
     render(<MultiSearchCard data={multiSearchData} />)
@@ -82,7 +84,7 @@ describe('MultiSearchCard', () => {
     it("should redirect to no more time page by clicking on a tv show card", () => {
       // GIVEN
       const push = jest.fn()
-      useRouter.mockImplementation(() => ({
+      mockedUseRouter.mockImplementation(() => ({
         push,
       }))
       render(<MultiSearchCard data={filteredMultiSearchStub[0] as MultiSearchShows} />)

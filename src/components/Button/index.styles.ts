@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledButton = styled.div<{ disabled: boolean }>`
+export const StyledButton = styled.button`
   padding: 1rem 0.6rem;
   color: ${({ theme }) => theme.colors.white};
   cursor: pointer;

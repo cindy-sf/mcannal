@@ -26,11 +26,11 @@ const Logo:VFC = (): ReactElement => {
         marginLeft="small"
         as="a"
         fontFamily="Poppins Medium"
-        onClick={(): void => {
+        onClick={() =>
           router.push({
             pathname: '/',
           })
-        }}
+        }
       >
         MyCanal ++
       </Text>

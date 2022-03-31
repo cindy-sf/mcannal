@@ -13,7 +13,7 @@ describe('Layout', () => {
   })
 
   describe('render', () => {
-    it("should render correctly the component with it's child", () => {
+    it("should render correctly the component with it's child and footer", () => {
       // GIVEN
       render(
         <Layout pageTitle="Test page">
@@ -23,6 +23,7 @@ describe('Layout', () => {
 
       // THEN
       expect(screen.getByText('Toto')).toBeInTheDocument()
+      expect(screen.getByText('Made with ❤️ by Cindy Saint Fleurant', { exact: true })).toBeInTheDocument()
     })
 
     // @todo: fix this test 

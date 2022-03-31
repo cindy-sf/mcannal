@@ -11,11 +11,11 @@ const NoMoreTime:VFC = (): ReactElement => {
   const router = useRouter()
   
   return (
-    <Layout pageTitle="">
+    <Layout pageTitle="Sorry">
       <StickyBar />
       <InfoScreen
         cta={{
-          onClick: (): Promise<boolean> => router.push('/'),
+          onClick: () => router.push('/'),
           title: 'Retourner à l’accueil',
         }}
         illustration={Illustration}

@@ -13,11 +13,11 @@ const WelcomeInsert:VFC = (): ReactElement => (
       <Text as="h1" size="xLarge">
         Bienvenue sur <Text as="span" color="purple" size="xLarge">MyCanal++</Text>
       </Text>
-      <Text size="medium" marginTop="large" maxWidth="70%">
-        Sur ce site, vous pourrez consulter et rechercher
-        films et séries comme bon vous semble.
+      <Text size="medium" marginTop="large">
+        Voici les fonctionnalités disponible :
       </Text>
-      <Text>/!\ Uniquement utilisable sur desktop.</Text>
+      <Text marginTop="small">✅ Détail d'un film ✅ Rechercher un film et une série</Text>
+      <Text>❌ Détail d'une série ❌ Responsive</Text>
       <Text size="medium" marginTop="large">
         Bonne visite 🙂
       </Text>

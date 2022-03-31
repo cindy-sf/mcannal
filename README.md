@@ -24,8 +24,8 @@ You can check the [Figma](https://www.figma.com/file/n0CAOvWZ2vDMs1vzhGVpKy/MyCa
 ## Prerequisite
 
 - Have [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) installed
-- This web app is running with node v16.14.2
-- Use the good version of npm `nvm use`
+  This web app is running with node v16.14.2
+  Use the good version of npm `nvm use`
 - As said above, this project is build with The Movie DB API. You have to generate an api key for the proper operation of the application.
   You can do it over [here](https://www.themoviedb.org/settings/api)
 

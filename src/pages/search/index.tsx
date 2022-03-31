@@ -16,7 +16,7 @@ const Loader = dynamic(
 )
 
 const SearchEmpty = dynamic(
-  () => import('./components/SearchEmpty'),
+  () => import('@components/InfoScreen'),
 )
 
 const SearchResults = dynamic(

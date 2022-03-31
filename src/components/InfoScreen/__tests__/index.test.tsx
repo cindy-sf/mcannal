@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import Illustration from '@src/assets/images/search-without-query.png'
 
-import SearchEmpty from '..'
-import userEvent from '@testing-library/user-event'
+import InfoScreen from '..'
 
-describe('SearchEmpty', () => {
+describe('InfoScreen', () => {
   const defaultProps = {
     title: 'Some title',
     illustration: Illustration,
@@ -17,7 +17,7 @@ describe('SearchEmpty', () => {
 
   it('should render the component correctly with his text, illustration and button', () => {
     // GIVEN
-    render(<SearchEmpty {...defaultProps} />)
+    render(<InfoScreen {...defaultProps} />)
 
     // THEN
     expect(screen.getByText('Some title', { exact: true })).toBeInTheDocument()
@@ -29,7 +29,7 @@ describe('SearchEmpty', () => {
   it('should happend something by clicking on the cta', () => {
     // GIVEN
     render(
-      <SearchEmpty {...defaultProps} />
+      <InfoScreen {...defaultProps} />
     )
 
     // WHEN

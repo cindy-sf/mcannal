@@ -2,16 +2,16 @@ import { render, screen } from '@testing-library/react'
 
 import Layout from '..'
 
-describe('Layout', () => {
-  jest.mock('next/head', () => {
-    return {
-      __esModule: true,
-      default: ({ children }: { children: Array<React.ReactElement> }) => {
-        return <>{children}</>
-      },
-    }
-  })
+jest.mock('next/head', () => {
+  return {
+    __esModule: true,
+    default: ({ children }: { children: Array<React.ReactElement> }) => {
+      return <>{children}</>
+    },
+  }
+})
 
+describe('Layout', () => {
   describe('render', () => {
     it("should render correctly the component with it's child and footer", () => {
       // GIVEN
@@ -26,8 +26,7 @@ describe('Layout', () => {
       expect(screen.getByText('Made with ❤️ by Cindy Saint Fleurant', { exact: true })).toBeInTheDocument()
     })
 
-    // @todo: fix this test 
-    it.skip("should render the dynamic title in head", () => {
+    it("should render the dynamic title in head", () => {
       // GIVEN
       render(
         <Layout pageTitle="Test page">
@@ -37,8 +36,7 @@ describe('Layout', () => {
       )
 
       // THEN
-      screen.debug()
-      expect(document.title).toEqual('Test page')
+      expect(document.title).toEqual('MyCanal ++ | Test page')
     })
   })
 })

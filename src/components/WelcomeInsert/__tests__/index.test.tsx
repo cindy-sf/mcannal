@@ -10,7 +10,7 @@ describe('Welcome insert', () => {
 
       // THEN
       expect(screen.getByText(/Bienvenue/)).toBeInTheDocument()
-      expect(screen.getByText(/Sur cette application, vous pourrez consulter/)).toBeInTheDocument()
+      expect(screen.getByText(/Sur ce site, vous pourrez consulter/)).toBeInTheDocument()
       expect(screen.getByText(/Bonne visite/)).toBeInTheDocument()
       expect(screen.getByRole("img")).toBeInTheDocument()
     })

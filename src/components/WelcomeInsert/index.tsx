@@ -13,11 +13,12 @@ const WelcomeInsert:VFC = (): ReactElement => (
       <Text as="h1" size="xLarge">
         Bienvenue sur <Text as="span" color="purple" size="xLarge">MyCanal++</Text>
       </Text>
-      <Text size="medium" mt="large" maxWidth="70%">
-        Sur cette application, vous pourrez consulter
+      <Text size="medium" marginTop="large" maxWidth="70%">
+        Sur ce site, vous pourrez consulter et rechercher
         films et séries comme bon vous semble.
       </Text>
-      <Text size="medium" mt="large">
+      <Text>/!\ Uniquement utilisable sur desktop.</Text>
+      <Text size="medium" marginTop="large">
         Bonne visite 🙂
       </Text>
     </div>

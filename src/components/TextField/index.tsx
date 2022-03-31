@@ -21,7 +21,7 @@ const TextField: VFC<Props> = ({
   const handleSubmit = (): void => {
     const trimedValue = value.trim()
 
-    if (trimedValue.length > 0) return
+    if (!trimedValue.length) return
 
     router.push({
       pathname: '/search',

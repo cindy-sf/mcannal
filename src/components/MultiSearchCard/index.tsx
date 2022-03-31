@@ -59,6 +59,7 @@ const MultiSearchCard:VFC<Props> = ({ data }) => {
           <Text
             as="h3"
             size="large"
+            marginBottom="xSmall"
             marginRight="xSmall"
             maxWidth="25rem"
             whiteSpace="nowrap"
@@ -72,7 +73,6 @@ const MultiSearchCard:VFC<Props> = ({ data }) => {
         <Text
           cursor="pointer"
           colorHover="purple"
-          marginTop="small"
           marginBottom="xSmall"
         >
           {data.overview.slice(0, 262) || 'Pas de description pour ce média'}...

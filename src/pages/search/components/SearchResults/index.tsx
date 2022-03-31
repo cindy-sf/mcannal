@@ -14,7 +14,7 @@ interface Prop {
 
 const SearchResult:VFC<Prop> = ({ multiSearchInfos, query }): ReactElement => (
   <Section>
-    <Text fontFamily="Poppins Italic">Résulat(s) pour la recherche "{query}"</Text>
+    <Text fontFamily="Poppins Italic" marginBottom="large">Résulat(s) pour la recherche "{query}"</Text>
     <MultiSearchCardContainer>
       {multiSearchInfos.map(info => (
         <MultiSearchCard key={info.id} data={info} />

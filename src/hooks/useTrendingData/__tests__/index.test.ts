@@ -15,10 +15,7 @@ describe('useTrendingData', () => {
     fetchMock.enableMocks()
     fetchMock.doMock()
   })
-  afterEach(() => {
-    fetchMock.mockClear()
-    jest.clearAllMocks()
-  })
+  afterEach(jest.clearAllMocks)
 
   describe('movies', () => {
     beforeEach(() => {

@@ -11,10 +11,7 @@ describe('useMultiSearch', () => {
     fetchMock.doMock()
     fetchMock.mockResponse(JSON.stringify(multiSearchStub))
   })
-  afterEach(() => {
-    fetchMock.mockClear()
-    jest.clearAllMocks()
-  })
+  afterEach(jest.clearAllMocks)
 
   it('should retrieve only movies and tv shows', async () => {
     // GIVEN

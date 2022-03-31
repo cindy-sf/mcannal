@@ -9,16 +9,19 @@
     "lint": "next lint",
     "commit": "cz",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage ./src",
+    "test:coverage:open": "ts-node ./open-coverage.command.mjs"
   },
   "dependencies": {
     "@testing-library/dom": "^8.11.4",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/react-hooks": "^7.0.2",
+    "child_process": "^1.0.2",
     "commitizen": "^4.2.4",
     "jest": "^27.5.1",
     "next": "12.1.1",
+    "path": "^0.12.7",
     "prettier": "^2.6.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",

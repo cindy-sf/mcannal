@@ -8,14 +8,12 @@ export type Color = 'purple' | 'black'
 interface Props {
   title: string
   onClick?: () => void
-  disabled?: boolean
 }
 
-const Button:VFC<Props> = ({ disabled = false, title, onClick }) => (
+const Button:VFC<Props> = ({ title, onClick }) => (
   <StyledButton
     onClick={onClick}
     role="button"
-    disabled={disabled}
   >
     <p>{title}</p>
   </StyledButton>

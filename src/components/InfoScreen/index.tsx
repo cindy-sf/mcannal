@@ -4,7 +4,7 @@ import Image, { StaticImageData } from 'next/image'
 import Button from '@components/Button'
 import Text from '@components/Text'
 
-import { ImageWrapper, Screen, Title } from './index.styles'
+import { ImageWrapper, ScreenContainer } from './index.styles'
 
 interface Props {
   title: string
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const InfoScreen:VFC<Props> = ({ cta, illustration, title, titleMaxWidth }): ReactElement => (
-  <Screen>
+  <ScreenContainer>
     <Text
       as="h2"
       textAlign="center"
@@ -40,7 +40,7 @@ const InfoScreen:VFC<Props> = ({ cta, illustration, title, titleMaxWidth }): Rea
       title={cta.title}
       onClick={cta.onClick}
     />
-  </Screen>
+  </ScreenContainer>
 )
 
 export default InfoScreen

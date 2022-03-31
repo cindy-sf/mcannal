@@ -78,6 +78,10 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  button {
+    border: none;
+  }
+
   li {
     list-style: none;
   }

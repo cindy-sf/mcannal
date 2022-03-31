@@ -165,10 +165,9 @@ const Details = () => {
         Casting
       </Text>
       <CastingContainer>
-        {credits?.crew.filter(person => person.known_for_department === 'Acting').map(person => (
-          <ImageWrapper>
+        {credits?.cast.map(person => (
+          <ImageWrapper key={person.id}>
             <Image
-              key={person.id}
               title={person.name}
               src={`${MOVIE_DB_BASE_POSTER_PATH}/${person.profile_path}`}
               width={65}

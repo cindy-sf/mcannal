@@ -14,7 +14,7 @@ describe('getTrendrings', () => {
 
   it.each([
     ['upcoming', `${DISCOVER_SHOWS_BASE_PATH}&limit=10&sort_by=first_air_date.desc`],
-    ['topRated', `${DISCOVER_SHOWS_BASE_PATH}&limit=10&sort_by=vote_average.desc`],
+    ['topRated', `${DISCOVER_SHOWS_BASE_PATH}&limit=10&sort_by=vote_count.desc`],
     ['popular', `${DISCOVER_SHOWS_BASE_PATH}&limit=10`]
   ])(
     'should collect trending shows with the correct url for "%s" request type',

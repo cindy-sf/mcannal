@@ -48,7 +48,7 @@ export const useMultiSearch = (page: number, query?: string): MultiSearchInfos =
           totalPage: multiSearchInfosData.total_pages,
         })
       } catch (error) {
-        console.error(error)
+        // do nothing
       } finally {
         setHasFetchedData(true)
       }

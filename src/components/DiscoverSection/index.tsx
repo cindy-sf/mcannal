@@ -27,10 +27,10 @@ const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }): Rea
     </Section>
     <Section>
       <Text as="h2" size="large">
-        Nouveautés
+        Les mieux notés
       </Text>
       <TrendingCardContainer>
-        {upcoming.map(movie => (
+        {topRated.map(movie => (
           <TrendingCard
             key={movie.id}
             data={movie}
@@ -40,10 +40,10 @@ const DiscoverSection:VFC<TrendingData> = ({ popular, topRated, upcoming }): Rea
     </Section>
     <Section>
       <Text as="h2" size="large">
-        Les mieux notés
+        Nouveautés
       </Text>
       <TrendingCardContainer>
-        {topRated.map(movie => (
+        {upcoming.map(movie => (
           <TrendingCard
             key={movie.id}
             data={movie}

@@ -14,7 +14,7 @@ describe('getTrendrings', () => {
 
   it.each([
     ['upcoming', `${DISCOVER_MOVIE_BASE_PATH}&limit=10&sort_by=release_date.desc`],
-    ['topRated', `${DISCOVER_MOVIE_BASE_PATH}&limit=10&sort_by=vote_average.desc,popularity.desc`],
+    ['topRated', `${DISCOVER_MOVIE_BASE_PATH}&limit=10&sort_by=vote_count.desc`],
     ['popular', `${DISCOVER_MOVIE_BASE_PATH}&limit=10`]
   ])(
     'should collect trending movies with the correct url for "%s" request type',

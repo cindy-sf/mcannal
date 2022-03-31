@@ -51,7 +51,7 @@ export const useTrendingData = (discoverType: DiscoverType): TrendingDataInfos =
           trendingShows: currentState?.trendingShows,
         }))
       } catch (error) {
-        console.error(error)
+        // do nothing
       }
     }
 

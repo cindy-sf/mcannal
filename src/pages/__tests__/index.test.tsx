@@ -40,7 +40,7 @@ describe('Home', () => {
         expect(await screen.findByText('À ne pas manquer')).toBeInTheDocument()
         expect(screen.getByText('Nouveautés')).toBeInTheDocument()
         expect(screen.getByText('Les mieux notés')).toBeInTheDocument()
-        expect(screen.getByText(/Sur cette application, vous pourrez consulter/)).toBeInTheDocument()
+        expect(screen.getByText(/Sur ce site, vous pourrez consulter/)).toBeInTheDocument()
       })
 
       it('should render the the tvShows section correctly by clicking on "Series" badge', async () => {

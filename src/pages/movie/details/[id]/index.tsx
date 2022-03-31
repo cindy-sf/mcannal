@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, ReactElement, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 
@@ -24,10 +24,10 @@ const isMovieError = (movie: Credits | MovieDetails | MoviesDetailsApiResponseEr
   return (movie as MoviesDetailsApiResponseError).success === false
 }
 
-const Details = () => {
+const Details: FC = (): ReactElement => {
   const router = useRouter()
   const [hasError, setHasError] = useState<boolean>(false)
-  const [isFetching, setIsFetching] = useState<boolean>(false)
+  const [isFetching, setIsFetching] = useState<boolean>(true)
   const [movie, setMovie] = useState<MovieDetails>()
   const [credits, setCredits] = useState<Credits>()
 
@@ -45,6 +45,7 @@ const Details = () => {
 
         if (isMovieError(details) || isMovieError(credits)) {
           setHasError(true)
+          setIsFetching(false)
           return
         }
 

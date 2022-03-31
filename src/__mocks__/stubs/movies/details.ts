@@ -1,4 +1,4 @@
-import type { Credits, MovieDetails } from "@src/types/movies"
+import type { Credits, MovieDetails, MoviesDetailsApiResponseError } from "@src/types/movies"
 
 export const creditsStub: Credits = {
   id: 152601,
@@ -42,6 +42,19 @@ export const creditsStub: Credits = {
     credit_id: "5fde4e21e263bb0041bb0eeb",
     department: "Crew",
     job: "Thanks"
+  },
+  {
+    adult: false,
+    gender: 2,
+    id: 1781,
+    known_for_department: "Camera",
+    name: "Quentin Tarantino",
+    original_name: "Quentin Tarantino",
+    popularity: 1.391,
+    profile_path: "/d6GFg2GBKDlIlhJdKopjSQg09oe.jpg",
+    credit_id: "5b3004570e0a265623008c54",
+    department: "Camera",
+    job: "Director",
   },
   {
     adult: false,
@@ -112,4 +125,10 @@ export const detailsStub: MovieDetails = {
   video: false,
   vote_average: 6.2,
   vote_count: 239
+}
+
+export const detailsErrorStub: MoviesDetailsApiResponseError = {
+  success: false,
+  status_code: 34,
+  status_message: "The resource you requested could not be found."
 }

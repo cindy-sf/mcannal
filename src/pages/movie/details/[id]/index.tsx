@@ -165,7 +165,7 @@ const Details = () => {
         Casting
       </Text>
       <CastingContainer>
-        {credits?.crew.map(person => (
+        {credits?.crew.filter(person => person.known_for_department === 'Acting').map(person => (
           <ImageWrapper>
             <Image
               key={person.id}

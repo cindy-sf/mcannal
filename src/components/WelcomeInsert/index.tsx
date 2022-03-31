@@ -14,9 +14,10 @@ const WelcomeInsert:VFC = (): ReactElement => (
         Bienvenue sur <Text as="span" color="purple" size="xLarge">MyCanal++</Text>
       </Text>
       <Text size="medium" marginTop="large">
-        Voici les fonctionnalités disponible :
+        Voici les fonctionnalités disponibles / indisponibles :
       </Text>
-      <Text marginTop="small">✅ Détail d'un film ✅ Rechercher un film et une série</Text>
+      <Text marginTop="small">✅ Listing des films et séries ✅ Détail d'un film</Text>
+      <Text>✅ Rechercher un film et une série</Text>
       <Text>❌ Détail d'une série ❌ Responsive</Text>
       <Text size="medium" marginTop="large">
         Bonne visite 🙂

@@ -24,14 +24,12 @@ const TrendingCard:VFC<Props> = ({ data }) => {
   const router = useRouter()
   const isMovieType = isMovie(data)
   const title = isMovieType ? data.title : data.name
+  const redirectionUrl = isMovieType ? { pathname: '/movie/details/[id]', query: { id: data.id } } : '/no-more-time'
 
   return (
     <TrendingCardWrapper
       onClick={(): void => {
-        router.push({
-          pathname: '/details/[id]',
-          query: { id: data.id },
-        })
+        router.push(redirectionUrl)
       }}
     >
       <ImageWrapper>
@@ -49,7 +47,7 @@ const TrendingCard:VFC<Props> = ({ data }) => {
       </ImageWrapper>
       <Text
         size="medium"
-        mt="xSmall"
+        marginTop="xSmall"
         fontWeight="bold"
         maxWidth="22rem"
         whiteSpace="nowrap"

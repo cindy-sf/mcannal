@@ -22,5 +22,5 @@ export const TrendingCardContainer = styled.div`
 `
 
 export const Section = styled.section`
-  margin-top: ${({ theme }) => theme.space.large};
+  margin-top: ${({ theme }) => theme.space.xLarge};
 `

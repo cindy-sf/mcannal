@@ -59,23 +59,43 @@ describe('MultiSearchCard', () => {
     })
   })
 
-  it("should redirect to detail page by clicking on the card", () => {
-    // GIVEN
-    const push = jest.fn()
+  describe('card redirection', () => {
+    it("should redirect to movie detail page by clicking on the card by default", () => {
+      // GIVEN
+      const push = jest.fn()
       useRouter.mockImplementation(() => ({
-      push,
-    }))
-
+        push,
+      }))
     render(<MultiSearchCard data={multiSearchData} />)
+  
+      // WHEN
+      userEvent.click(screen.getByText(multiSearchData.title))
+  
+      // THEN
+      expect(push).toHaveBeenCalledTimes(1)
+      expect(push).toHaveBeenCalledWith({
+        pathname: '/movie/details/[id]',
+        query: { id: multiSearchData.id },
+      })
+    })
 
-    // WHEN
-    userEvent.click(screen.getByText(multiSearchData.title))
-
-    // THEN
-    expect(push).toHaveBeenCalledTimes(1)
-    expect(push).toHaveBeenCalledWith({
-      pathname: '/details/[id]',
-      query: { id: multiSearchData.id },
+    it("should redirect to no more time page by clicking on a tv show card", () => {
+      // GIVEN
+      const push = jest.fn()
+      useRouter.mockImplementation(() => ({
+        push,
+      }))
+      render(<MultiSearchCard data={filteredMultiSearchStub[0] as MultiSearchShows} />)
+  
+      // WHEN
+      userEvent.click(screen.getByText(multiSearchData.title))
+  
+      // THEN
+      expect(push).toHaveBeenCalledTimes(1)
+      expect(push).toHaveBeenCalledWith({
+        pathname: '/movie/details/[id]',
+        query: { id: multiSearchData.id },
+      })
     })
   })
 })

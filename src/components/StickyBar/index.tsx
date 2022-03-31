@@ -4,9 +4,13 @@ import Logo from '@components/Logo'
 
 import { StickyBarWrapper } from './index.styles'
 
-const StickyBar:FC = ({ children }): ReactElement => {
+interface Props {
+  withTransparentBg?: boolean
+}
+
+const StickyBar:FC<Props> = ({ children, withTransparentBg = false }): ReactElement => {
   return (
-    <StickyBarWrapper>
+    <StickyBarWrapper withTransparentBg={withTransparentBg}>
       <Logo />
       {children && children}
     </StickyBarWrapper>

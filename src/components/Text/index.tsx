@@ -12,10 +12,10 @@ export interface Props {
   children: ReactNode | string[] | string
   textDecoration?: TextDecoration
   textAlign?: TextAlignPosition
-  mt?: AllowedSpaces
-  mr?: AllowedSpaces
-  mb?: AllowedSpaces
-  ml?: AllowedSpaces
+  marginTop?: keyof AllowedSpaces
+  marginLeft?: keyof AllowedSpaces
+  marginBottom?: keyof AllowedSpaces
+  marginRight?: keyof AllowedSpaces
   maxWidth?: string
   onClick?: () => void
   cursor?: AllowedCursor

@@ -8,7 +8,8 @@ export const BadgeContainer = styled.div<{ variant: Variant, color?: Color, size
   color: ${({ theme }) =>  theme.colors.white};
   cursor: pointer;
   font-size: ${({ theme }) => theme.fontSizes.small};
-  margin-right: ${({ theme }) => theme.space.small};
+  margin-right: ${({ theme }) => theme.space.xSmall};
+  margin-bottom: ${({ theme }) => theme.space.xSmall};
   min-width: 12rem;
   padding: 0.6rem 0.8rem;
   text-align: center;
@@ -21,9 +22,9 @@ export const BadgeContainer = styled.div<{ variant: Variant, color?: Color, size
   `}
 
   ${({ size }) => size === 'small' && `
+    width: 7rem;
+    min-width: initial;
     height: 2.5rem;
     padding: initial;
-    min-width: initial;
-    width: 7rem;
   `}
 `

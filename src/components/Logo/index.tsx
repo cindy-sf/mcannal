@@ -23,7 +23,7 @@ const Logo:VFC = (): ReactElement => {
         cursor="pointer"
         role="link"
         title="Canal++"
-        ml="small"
+        marginLeft="small"
         as="a"
         fontFamily="Poppins Medium"
         onClick={(): void => {

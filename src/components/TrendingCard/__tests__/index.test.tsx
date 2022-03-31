@@ -6,6 +6,7 @@ import { listStub as moviesListStub } from '@src/__mocks__/stubs/movies/list'
 import { listStub as tvShowsListStub } from '@src/__mocks__/stubs/shows/list' 
 
 import TrendingCard from '..'
+import { TvShows } from '@src/types/shows'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn(),
@@ -43,23 +44,43 @@ describe('TrendingCard', () => {
     })
   })
 
-  it("should redirect to movie detail page by clicking on the card", () => {
-    // GIVEN
-    const push = jest.fn()
-      useRouter.mockImplementation(() => ({
-      push,
-    }))
+  describe('redirection', () => {
+    it("should redirect to movie detail page by clicking on the card", () => {
+      // GIVEN
+      const push = jest.fn()
+        useRouter.mockImplementation(() => ({
+        push,
+      }))
+  
+      render(<TrendingCard data={movie} />)
+  
+      // WHEN
+      userEvent.click(screen.getByText(movie.title))
+  
+      // THEN
+      expect(push).toHaveBeenCalledTimes(1)
+      expect(push).toHaveBeenCalledWith({
+        pathname: '/movie/details/[id]',
+        query: { id: movie.id },
+      })
+    })
 
-    render(<TrendingCard data={movie} />)
-
-    // WHEN
-    userEvent.click(screen.getByText(movie.title))
-
-    // THEN
-    expect(push).toHaveBeenCalledTimes(1)
-    expect(push).toHaveBeenCalledWith({
-      pathname: '/details/[id]',
-      query: { id: movie.id },
+    it("should redirect to no more time page by clicking on a tv show card", () => {
+      // GIVEN
+      const push = jest.fn()
+        useRouter.mockImplementation(() => ({
+        push,
+      }))
+      const show = tvShowsListStub.results[1]
+  
+      render(<TrendingCard data={show} />)
+  
+      // WHEN
+      userEvent.click(screen.getByText(show.name))
+  
+      // THEN
+      expect(push).toHaveBeenCalledTimes(1)
+      expect(push).toHaveBeenCalledWith('/no-more-time')
     })
   })
 })

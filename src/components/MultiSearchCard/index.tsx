@@ -33,15 +33,13 @@ const MultiSearchCard:VFC<Props> = ({ data }) => {
   const isMovieType = isMovie(data)
   const title = isMovieType ? data.title : data.name
   const badgeTitle = data.media_type === 'movie' ? 'Film' : 'Série'
+  const redirectionUrl = isMovieType ? { pathname: '/movie/details/[id]', query: { id: data.id } } : '/no-more-time'
 
   return (
     <MultiSearchCardWrapper
       onClick={(): void => {
-        router.push({
-          pathname: '/details/[id]',
-          query: { id: data.id },
-        })
-      }}
+        router.push(redirectionUrl)
+      }} 
     >
       <ImageWrapper>
         <Image
@@ -61,7 +59,7 @@ const MultiSearchCard:VFC<Props> = ({ data }) => {
           <Text
             as="h3"
             size="large"
-            mr="xSmall"
+            marginRight="xSmall"
             maxWidth="25rem"
             whiteSpace="nowrap"
             overflow="hidden"
@@ -74,8 +72,8 @@ const MultiSearchCard:VFC<Props> = ({ data }) => {
         <Text
           cursor="pointer"
           colorHover="purple"
-          mt="small"
-          mb="xSmall"
+          marginTop="small"
+          marginBottom="xSmall"
         >
           {data.overview.slice(0, 262) || 'Pas de description pour ce média'}...
           </Text>

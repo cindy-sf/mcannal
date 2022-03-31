@@ -7,7 +7,7 @@ const Loader:VFC = (): ReactElement => (
     as="h3"
     textAlign="center"
     size="large"
-    mt="xLarge"
+    marginTop="xLarge"
   >
     Chargement...
   </Text>

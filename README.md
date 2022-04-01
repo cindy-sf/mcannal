@@ -23,18 +23,16 @@ You can check the [Figma](https://www.figma.com/file/n0CAOvWZ2vDMs1vzhGVpKy/MyCa
 
 ## Prerequisite
 
-- Have [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) installed
-  This web app is running with node v16.14.2
-  Use the good version of npm `nvm use`
+- Have [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) installed in your machine (this web app is running with node v16.14.2)
 - As said above, this project is build with The Movie DB API. You have to generate an api key for the proper operation of the application.
   You can do it over [here](https://www.themoviedb.org/settings/api)
-
+  
 ## Installation
 
 - Clone the project `git clone https://github.com/cindy-sf/mcannal.git`
+- Use the good version of node : `nvm use`
 - Now, adding the generated Movie DB api key :
   For this, create a `.env.local` file in the root of the project, and add this following line :
-
 ```javascript
 MOVIE_DB_API_KEY = 'YOUR_MOVIE_DB_API_KEY'
 ```
